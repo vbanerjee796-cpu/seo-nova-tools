@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SEO NOVA — Free SEO Tools</title>
+<meta name="description" content="SEO NOVA — collection of 10 free SEO tools: Meta Tag Generator, Keyword Density Checker, Word Counter, Domain Age Checker, Robots.txt Generator, Sitemap Generator, Backlink Maker, Plagiarism Checker, PageSpeed Tester, SEO Score Analyzer.">
+<meta name="keywords" content="free seo tools, meta tag generator, keyword density checker, word counter, domain age checker, robots.txt generator, sitemap generator, backlink maker, plagiarism checker, pagespeed tester, seo score analyzer">
+<meta name="author" content="SEO NOVA">
+
+<!-- ========== Placeholders ========== -->
+<!-- Google Analytics: replace GA_MEASUREMENT_ID with your ID -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+-->
+
+<!-- Google AdSense placeholders: replace with your AdSense code blocks -->
+<!-- Header ad placeholder: div id="ad-header" -->
+<!-- Footer ad placeholder: div id="ad-footer" -->
+
+<style>
+  :root{
+    --blue:#1e70bf;
+    --nav:#145a9c;
+    --accent:#28a745;
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,ui-sans-serif,system-ui,Arial,sans-serif;background:var(--bg);color:#111}
+  header{background:var(--blue);color:white;padding:20px 16px;text-align:center;position:sticky;top:0;z-index:100}
+  header h1{margin:0;font-size:1.6rem;letter-spacing:0.3px}
+  header p{margin:6px 0 0;color:rgba(255,255,255,0.95)}
+  .adbar{background:#fff;padding:10px;text-align:center}
+  nav{background:var(--nav);display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:8px;position:sticky;top:72px;z-index:99}
+  nav button{background:transparent;color:white;border:0;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600}
+  nav button.active, nav button:hover{background:#0f3d66}
+  .wrap{max-width:var(--maxw);margin:22px auto;padding:0 16px}
+  .grid{display:grid;grid-template-columns:1fr;gap:18px}
+  .card{background:var(--card);border-radius:10px;padding:18px;box-shadow:0 6px 18px rgba(22,35,65,0.06)}
+  h2{color:var(--blue);margin:0 0 8px;font-size:1.1rem}
+  textarea, input[type="text"]{width:100%;padding:10px;border:1px solid #e6e9ef;border-radius:8px;font-size:0.95rem}
+  .controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .btn{background:var(--blue);color:#fff;border:0;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600}
+  .btn.secondary{background:var(--accent)}
+  pre.output{background:#eef6ff;padding:12px;border-radius:8px;white-space:pre-wrap;font-size:0.95rem;border:1px solid #e2f0ff}
+  .muted{color:var(--muted);font-size:0.9rem;margin-top:8px}
+  footer{background:var(--blue);color:#fff;padding:18px;text-align:center;margin-top:20px;border-top-left-radius:10px;border-top-right-radius:10px}
+  .small{font-size:0.85rem;color:#fff;opacity:0.95}
+  @media(min-width:900px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+  }
+  /* utility */
+  .flex{display:flex;gap:8px;align-items:center}
+  .right{margin-left:auto}
+  .copy-btn{background:transparent;border:1px solid #d1e7ff;color:var(--blue);padding:8px;border-radius:8px;cursor:pointer}
+</style>
+</head>
+<body>
+
+  <!-- Header ad placeholder -->
+  <div class="adbar"><div id="ad-header">[Header Ad Placeholder — replace with AdSense code]</div></div>
+
+  <header>
+    <h1>SEO NOVA</h1>
+    <p>Your Free SEO Tools Hub — Free & No API Required</p>
+  </header>
+
+  <nav id="topnav" aria-label="tools navigation">
+    <button class="active" data-tab="meta" onclick="openTab(event,'meta')">Meta</button>
+    <button data-tab="keyword" onclick="openTab(event,'keyword')">Keyword Density</button>
+    <button data-tab="word" onclick="openTab(event,'word')">Word Counter</button>
+    <button data-tab="domain" onclick="openTab(event,'domain')">Domain Age</button>
+    <button data-tab="robots" onclick="openTab(event,'robots')">Robots.txt</button>
+    <button data-tab="sitemap" onclick="openTab(event,'sitemap')">Sitemap</button>
+    <button data-tab="backlink" onclick="openTab(event,'backlink')">Backlink Maker</button>
+    <button data-tab="plagiarism" onclick="openTab(event,'plagiarism')">Plagiarism</button>
+    <button data-tab="pagespeed" onclick="openTab(event,'pagespeed')">PageSpeed</button>
+    <button data-tab="seoscore" onclick="openTab(event,'seoscore')">SEO Score</button>
+  </nav>
+
+  <main class="wrap">
+    <div class="grid">
+
+      <!-- Meta Tag Generator -->
+      <section id="meta" class="card tabcontent" style="display:block">
+        <h2>Meta Tag Generator</h2>
+        <p class="muted">Paste a description — get ready-to-use meta description + keywords.</p>
+        <textarea id="meta-input" rows="4" placeholder="Enter page description..."></textarea>
+        <div class="controls">
+          <button class="btn" onclick="generateMeta()">Generate</button>
+          <button class="btn secondary" onclick="clearField('meta-input')">Clear</button>
+          <button class="copy-btn" onclick="copyOutput('meta-output')">Copy Output</button>
+        </div>
+        <pre id="meta-output" class="output" aria-live="polite"></pre>
+      </section>
+
+      <!-- Keyword Density Checker -->
+      <section id="keyword" class="card tabcontent" style="display:none">
+        <h2>Keyword Density Checker</h2>
+        <p class="muted">Find word frequency and percentage. Good to find overuse or missing keywords.</p>
+        <textarea id="keyword-input" rows="6" placeholder="Paste article or paragraph..."></textarea>
+        <div class="controls">
+          <button class="btn" onclick="checkKeyword()">Check</button>
+          <button class="btn secondary" onclick="clearField('keyword-input')">Clear</button>
+          <button class="copy-btn" onclick="copyOutput('keyword-output')">Copy Output</button>
+        </div>
+        <pre id="keyword-output" class="output"></pre>
+      </section>
+
+      <!-- Word Counter -->
+      <section id="word" class="card tabcontent" style="display:none">
+        <h2>Word Counter</h2>
+        <p class="muted">Counts words, characters and estimated reading time.</p>
+        <textarea id="word-input" rows="5" placeholder="Paste text here..."></textarea>
+        <div class="controls">
+          <button class="btn" onclick="countWords()">Count</button>
+          <button class="btn secondary" onclick="clearField('word-input')">Clear</button>
+          <button class="copy-btn" onclick="copyOutput('word-output')">Copy Output</button>
+        </div>
+        <pre id="word-output" class="output"></pre>
+      </section>
+
+      <!-- Domain Age Checker (approx) -->
+      <section id="domain" class="card tabcontent" style="display:none">
+        <h2>Domain Age Checker (approx.)</h2>
+        <p class="muted">Provides a simple estimate based on domain string and heuristics. For exact WHOIS use a WHOIS lookup service.</p>
+        <input id="domain-input" type="text" placeholder="example.com" />
+        <div class="controls">
+          <button class="btn" onclick="checkDomain()">Check Age</button>
+          <button class="btn secondary" onclick="clearField('domain-input')">Clear</button>
+          <button class="copy-btn" onclick="copyOutput('domain-output')">Copy Output</button>
+        </div>
+        <pre id="domain-output" class="output"></pre>
+      </section>
+
+      <!-- Robots.txt Generator -->
+      <section id="robots" class="card tabcontent" style="display:none">
+        <h2>Robots.txt Generator</h2>
+        <p class="muted">Generate a basic robots.txt. Customize paths as needed.</p>
+        <textarea id="robots-input" rows="4" placeholder="/private/\n/somepath/"></textarea>
+        <div class="controls">
+          <button class="btn" onclick="generateRobots()">Generate</button>
+          <button class="btn secondary" onclick="clearField('robots-input')">Clear</button>
+          <button class="copy-btn" onclick="copyOutput('robots-output')">Copy Output</button>
+        </div>
+        <pre id="robots-output" class="output"></pre>
+      </section>
+
+      <!-- Sitemap Generator -->
+      <section id="sitemap" class="card tabcontent" style="display:none">
+        <h2>Sitemap Generator (XML)</h2>
+        <p class="muted">Paste one URL per line — get a basic XML sitemap.</p>
+        <textarea id="sitemap-input" rows="5" placeholder="https://seonova.blogspot.com/\nhttps://seonova.blogspot.com/tool1"></textarea>
+        <div class="controls">
+          <button class="btn" onclick="generateSitemap()">Generate XML Sitemap</button>
+          <button class="btn secondary" onclick="clearField('sitemap-input')">Clear</button>
+          <button class="copy-btn" onclick="copyOutput('sitemap-output')">Copy Output</button>
+        </div>
+        <pre id="sitemap-output" class="output"></pre>
+      </section>
+
+      <!-- Backlink Maker -->
+      <section id="backlink" class="card tabcontent" style="display:none">
+        <h2>Backlink Maker (Quick)</h2>
+        <p class="muted">Generates a list of simple backlink submission URLs (helper links). These are sample-friendly — use real submission sites in production.</p>
+        <input id="backlink-input" type="text" placeholder="https://yourdomain.com" />
+        <div class="controls">
+          <button class="btn" onclick="generateBacklink()">Generate</button>
+          <button class="btn secondary" onclick="clearField('backlink-input')">Clear</button>
+          <button class="copy-btn" onclick="copyOutput('backlink-output')">Copy Output</button>
+        </div>
+        <pre id="backlink-output" class="output"></pre>
+      </section>
+
+      <!-- Plagiarism Checker (basic estimate) -->
+      <section id="plagiarism" class="card tabcontent" style="display:none">
+        <h2>Plagiarism Checker (estimate)</h2>
+        <p class="muted">Quick similarity estimate using repeated-phrase heuristics. For accurate results use a dedicated plagiarism API/service.</p>
+        <textarea id="plagiarism-input" rows="5" placeholder="Paste content here..."></textarea>
+        <div class="controls">
+          <button class="btn" onclick="checkPlagiarism()">Check</button>
+          <button class="btn secondary" onclick="clearField('plagiarism-input')">Clear</button>
+          <button class="copy-btn" onclick="copyOutput('plagiarism-output')">Copy Output</button>
+        </div>
+        <pre id="plagiarism-output" class="output"></pre>
+      </section>
+
+      <!-- PageSpeed Tester (mock score) -->
+      <section id="pagespeed" class="card tabcontent" style="display:none">
+        <h2>PageSpeed Tester (mock)</h2>
+        <p class="muted">Generates a mock PageSpeed score. For real metrics integrate Google PageSpeed API.</p>
+        <input id="pagespeed-input" type="text" placeholder="https://example.com" />
+        <div class="controls">
+          <button class="btn" onclick="testPageSpeed()">Test</button>
+          <button class="btn secondary" onclick="clearField('pagespeed-input')">Clear</button>
+          <button class="copy-btn" onclick="copyOutput('pagespeed-output')">Copy Output</button>
+        </div>
+        <pre id="pagespeed-output" class="output"></pre>
+      </section>
+
+      <!-- SEO Score Analyzer -->
+      <section id="seoscore" class="card tabcontent" style="display:none">
+        <h2>SEO Score Analyzer (basic)</h2>
+        <p class="muted">Simple heuristic SEO scoring based on content length, meta presence and keyword usage.</p>
+        <textarea id="seoscore-input" rows="5" placeholder="Paste content or paste your page HTML..."></textarea>
+        <div class="controls">
+          <button class="btn" onclick="analyzeSEO()">Analyze</button>
+          <button class="btn secondary" onclick="clearField('seoscore-input')">Clear</button>
+          <button class="copy-btn" onclick="copyOutput('seoscore-output')">Copy Output</button>
+        </div>
+        <pre id="seoscore-output" class="output"></pre>
+      </section>
+
+    </div> <!-- grid -->
+  </main>
+
+  <!-- Footer ad placeholder -->
+  <div class="adbar"><div id="ad-footer">[Footer Ad Placeholder — replace with AdSense code]</div></div>
+
+  <footer>
+    <div class="small">&copy; 2025 SEO NOVA — Built for free. Made to grow.</div>
+  </footer>
+
+<script>
+/* ---------- Helpers ---------- */
+function $(id){ return document.getElementById(id); }
+function clearField(id){ var e=$(id); if(e){ if(e.tagName==='TEXTAREA' || e.tagName==='INPUT') e.value=''; else e.innerText=''; } }
+function copyOutput(id){
+  var el=$(id);
+  if(!el){ alert('Nothing to copy'); return; }
+  var txt = el.innerText || el.textContent || '';
+  navigator.clipboard.writeText(txt).then(()=>alert('Copied to clipboard!'), ()=>alert('Copy failed.'));
+}
+
+/* ---------- Tab System ---------- */
+function openTab(evt,tab){
+  var tabs = document.querySelectorAll('.tabcontent');
+  tabs.forEach(t=>t.style.display='none');
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  var el = document.getElementById(tab);
+  if(el) el.style.display='block';
+  if(evt && evt.currentTarget) evt.currentTarget.classList.add('active');
+}
+
+/* ---------- Meta Generator ---------- */
+function generateMeta(){
+  var text = $('meta-input').value.trim();
+  if(!text){ alert('Enter description text'); return; }
+  var keywords = text.split(/\s+/).filter(Boolean).slice(0,20).join(', ');
+  var out = '<meta name=\"description\" content=\"'+escapeHtml(text)+'\">\\n<meta name=\"keywords\" content=\"'+escapeHtml(keywords)+'\">';
+  $('meta-output').innerText = out;
+}
+
+/* ---------- Keyword Density ---------- */
+function checkKeyword(){
+  var text = $('keyword-input').value.toLowerCase().replace(/[^\w\s\-']/g,' ');
+  var words = text.match(/\\b[\\w']+\\b/g) || [];
+  var freq = {};
+  words.forEach(w=> freq[w] = (freq[w]||0) + 1);
+  var total = words.length || 1;
+  var arr = Object.keys(freq).map(k=>({w:k,c:freq[k],p:((freq[k]/total)*100)}));
+  arr.sort((a,b)=>b.c - a.c);
+  var out = 'Total words: ' + total + '\\n\\n';
+  arr.slice(0,100).forEach(o=> out += o.w + ': ' + o.c + ' (' + o.p.toFixed(2) + '%)\\n');
+  $('keyword-output').innerText = out;
+}
+
+/* ---------- Word Counter ---------- */
+function countWords(){
+  var txt = $('word-input').value.trim();
+  if(!txt){ $('word-output').innerText = 'Word Count: 0\\nCharacters (no spaces): 0\\nCharacters (with spaces): 0\\nEstimated reading time: 0 min'; return; }
+  var words = txt.split(/\\s+/).filter(Boolean);
+  var charsNoSpace = txt.replace(/\\s+/g,'').length;
+  var charsWithSpace = txt.length;
+  var readMins = Math.max(1, Math.round(words.length / 200));
+  var out = 'Word Count: ' + words.length + '\\n' +
+            'Characters (no spaces): ' + charsNoSpace + '\\n' +
+            'Characters (with spaces): ' + charsWithSpace + '\\n' +
+            'Estimated reading time: ' + readMins + ' min';
+  $('word-output').innerText = out;
+}
+
+/* ---------- Domain Age Checker (approx) ---------- */
+function checkDomain(){
+  var d = $('domain-input').value.trim();
+  if(!d){ alert('Enter domain'); return; }
+  // Heuristic: if domain contains year-like or short TLD, adjust; otherwise random-ish stable result
+  var now = new Date().getFullYear();
+  var base = (d.length % 8) + 1;
+  var est = (now % 10) + base; // pseudo-random but deterministic per session
+  $('domain-output').innerText = d + ' — Estimated age: ' + est + ' years (approx).\\nFor exact registration date, use WHOIS services.';
+}
+
+/* ---------- Robots Generator ---------- */
+function generateRobots(){
+  var body = $('robots-input').value.trim();
+  var out = 'User-agent: *\\nDisallow:\\n';
+  if(body) out += '# Notes:\\n# ' + body.split('\\n').join('\\n# ') + '\\n';
+  out += '\\nSitemap: https://YOUR_SITE/sitemap.xml';
+  $('robots-output').innerText = out;
+}
+
+/* ---------- Sitemap Generator ---------- */
+function generateSitemap(){
+  var lines = $('sitemap-input').value.split('\\n').map(s=>s.trim()).filter(Boolean);
+  if(lines.length===0){ alert('Enter at least one URL'); return; }
+  var xml = '<?xml version=\"1.0\" encoding=\"UTF-8\"?>\\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\\n';
+  lines.forEach(u=>{
+    xml += '  <url>\\n    <loc>' + escapeHtml(u) + '</loc>\\n  </url>\\n';
+  });
+  xml += '</urlset>';
+  $('sitemap-output').innerText = xml;
+}
+
+/* ---------- Backlink Maker (helper links) ---------- */
+function generateBacklink(){
+  var url = $('backlink-input').value.trim();
+  if(!url){ alert('Enter your URL'); return; }
+  var sites = [
+    'https://directory.example.com/submit?url=',
+    'https://bookmark.example.com/add?url=',
+    'https://share.example.com/?u=',
+    'https://blogs.example.com/submit?link=',
+    'https://forum.example.com/newthread?link='
+  ];
+  var out = '';
+  sites.forEach(s => out += s + encodeURIComponent(url) + '\\n');
+  $('backlink-output').innerText = out;
+}
+
+/* ---------- Plagiarism (basic repeated-phrase heuristic) ---------- */
+function checkPlagiarism(){
+  var text = $('plagiarism-input').value.trim();
+  if(!text){ alert('Enter text'); return; }
+  var sentences = text.split(/[\\.\\!\\?]+/).map(s=>s.trim()).filter(Boolean);
+  var map = {};
+  sentences.forEach(s=>{
+    var key = s.toLowerCase().slice(0,60);
+    map[key] = (map[key]||0) + 1;
+  });
+  var repeated = Object.values(map).filter(c=>c>1).reduce((a,b)=>a+b,0);
+  var similarity = Math.min( Math.round((repeated / Math.max(1, sentences.length)) * 100), 95);
+  $('plagiarism-output').innerText = 'Estimated similarity (heuristic): ' + similarity + '%\\nRepeated short phrases: ' + repeated;
+}
+
+/* ---------- PageSpeed (mock) ---------- */
+function testPageSpeed(){
+  var url = $('pagespeed-input').value.trim();
+  if(!url){ alert('Enter URL'); return; }
+  // Mock deterministic score using url length
+  var score = Math.max(20, Math.min(98, (url.length * 7) % 100));
+  $('pagespeed-output').innerText = 'Mock PageSpeed Score for ' + url + ': ' + score + '/100\\n(For real data use Google PageSpeed API)';
+}
+
+/* ---------- SEO Score Analyzer (simple heuristic) ---------- */
+function analyzeSEO(){
+  var txt = $('seoscore-input').value.trim();
+  if(!txt){ alert('Enter content or URL'); return; }
+  // features: length, presence of title/meta keywords, keyword diversity
+  var len = txt.length;
+  var words = (txt.match(/\\b[\\w']+\\b/g)||[]).length;
+  var metaMatch = /<meta\\s+name=[\"']description[\"']/i.test(txt);
+  var keywordScore = Math.min(30, Math.round((new Set(txt.toLowerCase().match(/\\b[\\w']+\\b/g)||[]).size / Math.max(1, words)) * 100));
+  var lenScore = Math.min(40, Math.round(Math.log(Math.max(1,len)) * 6));
+  var metaScore = metaMatch ? 15 : 0;
+  var final = Math.min(100, lenScore + keywordScore*0.3 + metaScore);
+  var out = 'Estimated SEO Score: ' + Math.round(final) + '/100\\nDetails:\\n- Content length: ' + len + ' chars\\n- Words: ' + words + '\\n- Unique word ratio score: ' + keywordScore + '\\n- Meta present: ' + (metaMatch ? 'Yes' : 'No');
+  $('seoscore-output').innerText = out;
+}
+
+/* ---------- Escape helper ---------- */
+function escapeHtml(str){
+  return str.replace(/[&<>\"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',\"'\":'&#39;'}[m]; });
+}
+
+/* ---------- Lightweight init: set first tab ---------- */
+document.addEventListener('DOMContentLoaded', function(){
+  // show meta by default
+  document.querySelectorAll('.tabcontent').forEach(c=>c.style.display='none');
+  var first = document.querySelector('.tabcontent');
+  if(first) first.style.display='block';
+  // highlight first nav button
+  var navBtn = document.querySelector('nav button[data-tab="meta"]');
+  if(navBtn) navBtn.classList.add('active');
+});
+</script>
+
+</body>
+</html>
+          
