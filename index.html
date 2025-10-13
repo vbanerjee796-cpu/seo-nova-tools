@@ -55,6 +55,8 @@ footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:2
 <button class="tablinks" onclick="openTab(event,'serp')">SERP Simulator</button>
 <button class="tablinks" onclick="openTab(event,'backcount')">Backlink Counter</button>
 <button class="tablinks" onclick="openTab(event,'schema')">Schema Generator</button>
+<button class="tablinks" onclick="openTab(event,'serp')">SERP Simulator</button>
+<button class="tablinks" onclick="openTab(event,'aimeta')">AI Meta Writer</button>
   
 </nav>
 
@@ -140,7 +142,24 @@ footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:2
 <button class="copy-btn" onclick="copyToClipboard('seoscore-output')">Copy</button>
 <output id="seoscore-output"></output>
 </div>
+<!-- SERP Simulator -->
+<div id="serp" class="tabcontent">
+  <h2>SERP Simulator 🔍</h2>
+  <input type="text" id="serp-title" placeholder="Enter Title..." style="width:100%;margin-bottom:5px;">
+  <input type="text" id="serp-url" placeholder="Enter URL..." style="width:100%;margin-bottom:5px;">
+  <textarea id="serp-desc" rows="4" style="width:100%;" placeholder="Enter Meta Description..."></textarea><br>
+  <button class="tool-btn" onclick="simulateSERP()">Preview</button>
+  <output id="serp-output"></output>
+</div>
 
+<!-- AI Meta Writer -->
+<div id="aimeta" class="tabcontent">
+  <h2>AI Meta Writer ✨</h2>
+  <textarea id="aimeta-input" rows="4" style="width:100%;" placeholder="Enter your blog topic or paragraph..."></textarea><br>
+  <button class="tool-btn" onclick="generateAIMeta()">Generate Meta Title & Description</button>
+  <output id="aimeta-output"></output>
+</div>
+  
 <div id="youtube" class="tabcontent">
   <h2>YouTube Tag Extractor 🎥</h2>
   <input type="text" id="youtube-input" placeholder="Paste YouTube Video URL..." style="width:80%;"/>
@@ -379,6 +398,26 @@ function analyzeSEO(){
   var score=Math.floor(Math.random()*100)+1;
   document.getElementById("seoscore-output").innerText="Estimated SEO Score: "+score+"/100";
 }
+  function simulateSERP(){
+  var title=document.getElementById('serp-title').value.trim() || 'Example Title for SEO NOVA';
+  var url=document.getElementById('serp-url').value.trim() || 'https://www.seonova.com/example';
+  var desc=document.getElementById('serp-desc').value.trim() || 'Example meta description goes here.';
+  var result='<div style="border:1px solid #ddd;padding:15px;border-radius:8px;">'
+           +'<p style="color:#1a0dab;font-size:18px;margin:0;">'+title+'</p>'
+           +'<p style="color:#006621;font-size:14px;margin:0;">'+url+'</p>'
+           +'<p style="color:#545454;font-size:13px;">'+desc+'</p>'
+           +'</div>';
+  document.getElementById('serp-output').innerHTML=result;
+}
+
+function generateAIMeta(){
+  var topic=document.getElementById('aimeta-input').value.trim();
+  if(!topic){alert('Enter a topic or content');return;}
+  var title='Best Tips About '+topic.replace(/\b\w/g,c=>c.toUpperCase());
+  var desc='Learn everything about '+topic+'. Expert insights, SEO-friendly tips, and strategies to grow your online visibility.';
+  document.getElementById('aimeta-output').innerText='Title: '+title+'\n\nDescription: '+desc;
+}
+  
   
 function extractYouTubeTags(){
   var url = document.getElementById('youtube-input').value.trim();
