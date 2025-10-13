@@ -140,7 +140,15 @@ footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:2
 <button class="copy-btn" onclick="copyToClipboard('seoscore-output')">Copy</button>
 <output id="seoscore-output"></output>
 </div>
-
+  <div id="serp" class="tabcontent">
+  <h2>SERP Snippet Simulator 🔍</h2>
+  <input id="serp-title" placeholder="Title (max 60 chars)" style="width:80%;"/><br><br>
+  <textarea id="serp-desc" rows="3" placeholder="Description (max 160 chars)" style="width:80%;"></textarea><br><br>
+  <input id="serp-url" placeholder="URL (e.g., https://example.com)" style="width:80%;"/><br><br>
+  <button class="tool-btn" onclick="simulateSERP()">Preview</button>
+  <div id="serp-preview" style="margin-top:15px;border:1px solid #ddd;padding:10px;border-radius:8px;background:#fff;"></div>
+  </div>
+  
   
 <div id="youtube" class="tabcontent">
   <h2>YouTube Tag Extractor 🎥</h2>
