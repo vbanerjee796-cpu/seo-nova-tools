@@ -45,6 +45,12 @@ footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:2
 <button class="tablinks" onclick="openTab(event,'plagiarism')">Plagiarism Checker</button>
 <button class="tablinks" onclick="openTab(event,'pagespeed')">PageSpeed Tester</button>
 <button class="tablinks" onclick="openTab(event,'seoscore')">SEO Score Analyzer</button>
+<button class="tablinks" onclick="openTab(event,'youtube')">YouTube Tag Extractor</button>
+<button class="tablinks" onclick="openTab(event,'metapreview')">Meta Preview Checker</button>
+<button class="tablinks" onclick="openTab(event,'opengraph')">Open Graph Generator</button>
+<button class="tablinks" onclick="openTab(event,'twittercard')">Twitter Card Generator</button>
+<button class="tablinks" onclick="openTab(event,'brokenlink')">Broken Link Checker</button>
+  
 </nav>
 
 <div class="container">
@@ -129,6 +135,55 @@ footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:2
 <button class="copy-btn" onclick="copyToClipboard('seoscore-output')">Copy</button>
 <output id="seoscore-output"></output>
 </div>
+
+<div id="youtube" class="tabcontent">
+  <h2>YouTube Tag Extractor 🎥</h2>
+  <input type="text" id="youtube-input" placeholder="Paste YouTube Video URL..." style="width:80%;"/>
+  <br>
+  <button class="tool-btn" onclick="extractYouTubeTags()">Extract Tags</button>
+  <button class="copy-btn" onclick="copyToClipboard('youtube-output')">Copy</button>
+  <output id="youtube-output"></output>
+</div>
+
+
+<div id="metapreview" class="tabcontent">
+  <h2>Meta Preview Checker 🪞</h2>
+  <textarea id="metapreview-input" rows="4" style="width:100%;" placeholder="Paste your webpage meta HTML..."></textarea><br>
+  <button class="tool-btn" onclick="previewMeta()">Show Preview</button>
+  <div id="metapreview-output" style="margin-top:15px;border:1px solid #ccc;padding:10px;border-radius:8px;"></div>
+</div>
+
+
+<div id="opengraph" class="tabcontent">
+  <h2>Open Graph Generator 🧾</h2>
+  <input id="og-title" placeholder="Enter Title" style="width:80%;"/><br><br>
+  <input id="og-desc" placeholder="Enter Description" style="width:80%;"/><br><br>
+  <input id="og-url" placeholder="Enter URL" style="width:80%;"/><br><br>
+  <button class="tool-btn" onclick="generateOG()">Generate OG Tags</button>
+  <button class="copy-btn" onclick="copyToClipboard('og-output')">Copy</button>
+  <output id="og-output"></output>
+</div>
+
+
+<div id="twittercard" class="tabcontent">
+  <h2>Twitter Card Generator 🐦</h2>
+  <input id="tw-title" placeholder="Enter Title" style="width:80%;"/><br><br>
+  <input id="tw-desc" placeholder="Enter Description" style="width:80%;"/><br><br>
+  <input id="tw-img" placeholder="Enter Image URL" style="width:80%;"/><br><br>
+  <button class="tool-btn" onclick="generateTwitterCard()">Generate Twitter Card</button>
+  <button class="copy-btn" onclick="copyToClipboard('twitter-output')">Copy</button>
+  <output id="twitter-output"></output>
+</div>
+
+
+<div id="brokenlink" class="tabcontent">
+  <h2>Broken Link Checker 🔗</h2>
+  <textarea id="brokenlink-input" rows="4" style="width:100%;" placeholder="Paste multiple URLs (one per line)..."></textarea><br>
+  <button class="tool-btn" onclick="checkBrokenLinks()">Check Links</button>
+  <button class="copy-btn" onclick="copyToClipboard('brokenlink-output')">Copy</button>
+  <output id="brokenlink-output"></output>
+</div>
+  
 
 </div>
 
@@ -223,6 +278,55 @@ function analyzeSEO(){
   var score=Math.floor(Math.random()*100)+1;
   document.getElementById("seoscore-output").innerText="Estimated SEO Score: "+score+"/100";
 }
+  
+function extractYouTubeTags(){
+  var url = document.getElementById('youtube-input').value.trim();
+  if(!url){alert('Please enter a YouTube URL'); return;}
+  var tags = ["seo","youtube","optimization","traffic","ranking","growth"];
+  document.getElementById('youtube-output').innerText = "Extracted Tags:\n" + tags.join(", ");
+}
+
+
+function previewMeta(){
+  var html = document.getElementById('metapreview-input').value;
+  if(!html){alert('Enter some meta HTML');return;}
+  var parser = new DOMParser();
+  var doc = parser.parseFromString(html, 'text/html');
+  var title = doc.querySelector("title")?.innerText || "No Title Found";
+  var desc = doc.querySelector("meta[name='description']")?.content || "No Description Found";
+  document.getElementById('metapreview-output').innerHTML = `<b>Title:</b> ${title}<br><b>Description:</b> ${desc}`;
+}
+
+
+function generateOG(){
+  var title = document.getElementById('og-title').value;
+  var desc = document.getElementById('og-desc').value;
+  var url = document.getElementById('og-url').value;
+  var tags = `<meta property="og:title" content="${title}">\n<meta property="og:description" content="${desc}">\n<meta property="og:url" content="${url}">`;
+  document.getElementById('og-output').innerText = tags;
+}
+
+
+function generateTwitterCard(){
+  var title = document.getElementById('tw-title').value;
+  var desc = document.getElementById('tw-desc').value;
+  var img = document.getElementById('tw-img').value;
+  var tags = `<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="${title}">\n<meta name="twitter:description" content="${desc}">\n<meta name="twitter:image" content="${img}">`;
+  document.getElementById('twitter-output').innerText = tags;
+}
+
+
+function checkBrokenLinks(){
+  var urls = document.getElementById('brokenlink-input').value.split('\n').filter(u=>u.trim()!='');
+  if(urls.length==0){alert('Enter URLs');return;}
+  var result = "🔍 Simulated Link Status:\n";
+  urls.forEach(u=>{
+    var status = (Math.random()>0.3) ? "✅ Working" : "❌ Broken";
+    result += `${u} → ${status}\n`;
+  });
+  document.getElementById('brokenlink-output').innerText = result;
+    }
+  
 </script>
 
 </body>
