@@ -507,6 +507,18 @@ function generateAltText(){
   if(!keyword){alert('Enter keyword');return;}
   document.getElementById('alttext-output').innerText="ALT Text: A descriptive image related to "+keyword+".";
 }
+  function simulateSERP(){
+  var title = document.getElementById('serp-title').value;
+  var desc = document.getElementById('serp-desc').value;
+  var url = document.getElementById('serp-url').value;
+  document.getElementById('serp-preview').innerHTML =
+    `<div style='font-family:Arial;line-height:1.4'>
+      <div style='color:#1a0dab;font-size:18px;'>${title}</div>
+      <div style='color:#006621;font-size:14px;'>${url}</div>
+      <div style='color:#545454;'>${desc}</div>
+     </div>`;
+  }
+  
 
 
 function countBacklinks(){
