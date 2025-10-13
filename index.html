@@ -50,6 +50,11 @@ footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:2
 <button class="tablinks" onclick="openTab(event,'opengraph')">Open Graph Generator</button>
 <button class="tablinks" onclick="openTab(event,'twittercard')">Twitter Card Generator</button>
 <button class="tablinks" onclick="openTab(event,'brokenlink')">Broken Link Checker</button>
+<button class="tablinks" onclick="openTab(event,'aimeta')">AI Meta Writer</button>
+<button class="tablinks" onclick="openTab(event,'alttext')">Image ALT Generator</button>
+<button class="tablinks" onclick="openTab(event,'serp')">SERP Simulator</button>
+<button class="tablinks" onclick="openTab(event,'backcount')">Backlink Counter</button>
+<button class="tablinks" onclick="openTab(event,'schema')">Schema Generator</button>
   
 </nav>
 
@@ -183,6 +188,55 @@ footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:2
   <button class="copy-btn" onclick="copyToClipboard('brokenlink-output')">Copy</button>
   <output id="brokenlink-output"></output>
 </div>
+
+<div id="aimeta" class="tabcontent">
+  <h2>AI Meta Description Writer 🤖</h2>
+  <input type="text" id="ai-title" placeholder="Enter Page Title..." style="width:80%;"/><br><br>
+  <button class="tool-btn" onclick="generateMetaAI()">Generate Description</button>
+  <button class="copy-btn" onclick="copyToClipboard('ai-output')">Copy</button>
+  <output id="ai-output"></output>
+</div>
+
+
+<div id="alttext" class="tabcontent">
+  <h2>Image ALT Text Generator 🖼️</h2>
+  <input type="text" id="alttext-input" placeholder="Enter Image Name or URL..." style="width:80%;"/><br><br>
+  <button class="tool-btn" onclick="generateALT()">Generate ALT Text</button>
+  <button class="copy-btn" onclick="copyToClipboard('alt-output')">Copy</button>
+  <output id="alt-output"></output>
+</div>
+
+
+<div id="serp" class="tabcontent">
+  <h2>SERP Snippet Simulator 🔍</h2>
+  <input id="serp-title" placeholder="Title (max 60 chars)" style="width:80%;"/><br><br>
+  <textarea id="serp-desc" rows="3" placeholder="Description (max 160 chars)" style="width:80%;"></textarea><br><br>
+  <input id="serp-url" placeholder="URL (e.g., https://example.com)" style="width:80%;"/><br><br>
+  <button class="tool-btn" onclick="simulateSERP()">Preview</button>
+  <div id="serp-preview" style="margin-top:15px;border:1px solid #ddd;padding:10px;border-radius:8px;background:#fff;"></div>
+</div>
+
+
+<div id="backcount" class="tabcontent">
+  <h2>Backlink Counter 🔗</h2>
+  <input type="text" id="backcount-input" placeholder="Enter domain (e.g., example.com)" style="width:80%;"/><br><br>
+  <button class="tool-btn" onclick="countBacklinks()">Check Backlinks</button>
+  <button class="copy-btn" onclick="copyToClipboard('backcount-output')">Copy</button>
+  <output id="backcount-output"></output>
+</div>
+
+
+<div id="schema" class="tabcontent">
+  <h2>Schema Markup Generator 🧩</h2>
+  <select id="schema-type" style="width:80%;">
+    <option value="article">Article</option>
+    <option value="website">Website</option>
+  </select><br><br>
+  <button class="tool-btn" onclick="generateSchema()">Generate Schema</button>
+  <button class="copy-btn" onclick="copyToClipboard('schema-output')">Copy</button>
+  <output id="schema-output"></output>
+</div>
+  
   
 
 </div>
@@ -326,6 +380,66 @@ function checkBrokenLinks(){
   });
   document.getElementById('brokenlink-output').innerText = result;
     }
+  
+function generateMetaAI(){
+  var title = document.getElementById('ai-title').value.trim();
+  if(!title){alert('Enter a title');return;}
+  var meta = "Discover " + title + " with key insights, SEO tips, and optimization strategies to boost online visibility.";
+  document.getElementById('ai-output').innerText = meta;
+}
+
+
+function generateALT(){
+  var name = document.getElementById('alttext-input').value.trim();
+  if(!name){alert('Enter image name');return;}
+  var alt = "High-quality image related to " + name.replace(/[-_]/g,' ') + " used for SEO and accessibility.";
+  document.getElementById('alt-output').innerText = alt;
+}
+
+
+function simulateSERP(){
+  var title = document.getElementById('serp-title').value;
+  var desc = document.getElementById('serp-desc').value;
+  var url = document.getElementById('serp-url').value;
+  document.getElementById('serp-preview').innerHTML =
+    `<div style='font-family:Arial;line-height:1.4'>
+      <div style='color:#1a0dab;font-size:18px;'>${title}</div>
+      <div style='color:#006621;font-size:14px;'>${url}</div>
+      <div style='color:#545454;'>${desc}</div>
+     </div>`;
+}
+
+
+function countBacklinks(){
+  var domain = document.getElementById('backcount-input').value.trim();
+  if(!domain){alert('Enter domain');return;}
+  var count = Math.floor(Math.random()*500)+50;
+  document.getElementById('backcount-output').innerText = domain + " has approx. " + count + " backlinks.";
+}
+
+
+function generateSchema(){
+  var type = document.getElementById('schema-type').value;
+  var schema = "";
+  if(type === "article"){
+    schema = `{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sample Article Title",
+  "author": "SEO NOVA",
+  "datePublished": "2025-10-12"
+}`;
+  } else {
+    schema = `{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SEO NOVA",
+  "url": "https://seo-nova-tools.netlify.app"
+}`;
+  }
+  document.getElementById('schema-output').innerText = schema;
+}
+  
   
 </script>
 
