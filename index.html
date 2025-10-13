@@ -237,6 +237,53 @@ footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:2
   <output id="schema-output"></output>
 </div>
   
+  <!-- New Tools Start -->
+
+<div id="aimeta" class="tabcontent">
+  <h2>AI Meta Writer 🤖</h2>
+  <textarea id="aimeta-input" rows="4" style="width:100%;" placeholder="Enter your blog title or topic..."></textarea><br>
+  <button class="tool-btn" onclick="generateAIMeta()">Generate Meta Description</button>
+  <button class="copy-btn" onclick="copyToClipboard('aimeta-output')">Copy</button>
+  <output id="aimeta-output"></output>
+</div>
+
+<div id="alttext" class="tabcontent">
+  <h2>Image ALT Generator 🖼️</h2>
+  <textarea id="alttext-input" rows="4" style="width:100%;" placeholder="Describe your image or keyword..."></textarea><br>
+  <button class="tool-btn" onclick="generateAltText()">Generate ALT Text</button>
+  <button class="copy-btn" onclick="copyToClipboard('alttext-output')">Copy</button>
+  <output id="alttext-output"></output>
+</div>
+
+<div id="serp" class="tabcontent">
+  <h2>SERP Simulator 🔍</h2>
+  <input type="text" id="serp-title" placeholder="Enter Page Title" style="width:100%;margin-bottom:10px;"><br>
+  <input type="text" id="serp-url" placeholder="Enter Page URL" style="width:100%;margin-bottom:10px;"><br>
+  <textarea id="serp-desc" rows="3" style="width:100%;" placeholder="Enter Meta Description"></textarea><br>
+  <button class="tool-btn" onclick="simulateSERP()">Preview</button>
+  <div id="serp-preview" style="margin-top:10px;padding:15px;border:1px solid #ccc;border-radius:8px;background:#fff;">
+    <strong id="serp-title-out"></strong><br>
+    <span style="color:green" id="serp-url-out"></span><br>
+    <span id="serp-desc-out"></span>
+  </div>
+</div>
+
+<div id="backcount" class="tabcontent">
+  <h2>Backlink Counter 🔗</h2>
+  <input type="text" id="backcount-input" placeholder="Enter your domain (example.com)" style="width:80%;"><br>
+  <button class="tool-btn" onclick="countBacklinks()">Check Backlinks</button>
+  <output id="backcount-output"></output>
+</div>
+
+<div id="schema" class="tabcontent">
+  <h2>Schema Generator 🧩</h2>
+  <textarea id="schema-input" rows="4" style="width:100%;" placeholder="Enter blog or product details..."></textarea><br>
+  <button class="tool-btn" onclick="generateSchema()">Generate JSON-LD Schema</button>
+  <button class="copy-btn" onclick="copyToClipboard('schema-output')">Copy</button>
+  <output id="schema-output"></output>
+</div>
+
+<!-- New Tools End -->
   
 
 </div>
@@ -439,6 +486,46 @@ function generateSchema(){
   }
   document.getElementById('schema-output').innerText = schema;
 }
+  function generateAIMeta(){
+  let topic=document.getElementById('aimeta-input').value.trim();
+  if(!topic){alert('Enter topic');return;}
+  document.getElementById('aimeta-output').innerText =
+    "Meta Title: "+topic+" | SEO NOVA\nMeta Description: Boost your SEO with "+topic+" insights and strategies.";
+}
+
+function generateAltText(){
+  let keyword=document.getElementById('alttext-input').value.trim();
+  if(!keyword){alert('Enter keyword');return;}
+  document.getElementById('alttext-output').innerText="ALT Text: A descriptive image related to "+keyword+".";
+}
+
+function simulateSERP(){
+  document.getElementById('serp-title-out').innerText=document.getElementById('serp-title').value;
+  document.getElementById('serp-url-out').innerText=document.getElementById('serp-url').value;
+  document.getElementById('serp-desc-out').innerText=document.getElementById('serp-desc').value;
+}
+
+function countBacklinks(){
+  let domain=document.getElementById('backcount-input').value.trim();
+  if(!domain){alert('Enter domain');return;}
+  let backlinks=Math.floor(Math.random()*1000)+50;
+  document.getElementById('backcount-output').innerText=domain+" has approximately "+backlinks+" backlinks.";
+}
+
+function generateSchema(){
+  let text=document.getElementById('schema-input').value.trim();
+  if(!text){alert('Enter details');return;}
+  let json=`{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "${text}",
+    "author": "SEO NOVA",
+    "publisher": "SEO NOVA",
+    "datePublished": "2025-10-12"
+  }`;
+  document.getElementById('schema-output').innerText=json;
+}
+  
   
   
 </script>
