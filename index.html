@@ -48,6 +48,15 @@ footer a{color:#fff;text-decoration:none;margin:0 5px;}
 <button class="tablinks" onclick="openTab(event,'seoscore')">SEO Score Analyzer</button>
 <button class="tablinks" onclick="openTab(event,'serp')">SERP Simulator</button>
 <button class="tablinks" onclick="openTab(event,'aimeta')">AI Meta Writer</button>
+<button class="tablinks" onclick="openTab(event,'titlecheck')">Meta Title Length</button>
+<button class="tablinks" onclick="openTab(event,'metadesc')">Meta Description Analyzer</button>
+<button class="tablinks" onclick="openTab(event,'urltool')">URL Encoder/Decoder</button>
+<button class="tablinks" onclick="openTab(event,'base64tool')">Base64 Encode/Decode</button>
+<button class="tablinks" onclick="openTab(event,'jsontool')">JSON Formatter</button>
+<button class="tablinks" onclick="openTab(event,'htmltool')">HTML Beautify/Minify</button>
+<button class="tablinks" onclick="openTab(event,'yttags')">YouTube Tag Extractor</button>
+<button class="tablinks" onclick="openTab(event,'case')">Text Case Converter</button>
+  
 </nav>
 
 <div class="container">
@@ -160,6 +169,86 @@ footer a{color:#fff;text-decoration:none;margin:0 5px;}
 <output id="aimeta-output"></output>
 </div>
 
+<!-- 1) Meta Title Length Checker -->
+<div id="titlecheck" class="tabcontent">
+  <h2>Meta Title Length Checker</h2>
+  <input id="titlecheck-input" type="text" placeholder="Enter title..." style="width:100%;"/><br><br>
+  <button class="tool-btn" onclick="checkTitleLen()">Check Title</button>
+  <button class="copy-btn" onclick="copyToClipboard('titlecheck-output')">Copy</button>
+  <output id="titlecheck-output"></output>
+</div>
+
+<!-- 2) Meta Description Analyzer -->
+<div id="metadesc" class="tabcontent">
+  <h2>Meta Description Analyzer</h2>
+  <textarea id="metadesc-input" rows="3" style="width:100%;" placeholder="Enter meta description..."></textarea><br>
+  <button class="tool-btn" onclick="analyzeMetaDesc()">Analyze Description</button>
+  <button class="copy-btn" onclick="copyToClipboard('metadesc-output')">Copy</button>
+  <output id="metadesc-output"></output>
+</div>
+
+<!-- 3) URL Encoder / Decoder -->
+<div id="urltool" class="tabcontent">
+  <h2>URL Encoder / Decoder</h2>
+  <input id="url-input" type="text" placeholder="Enter URL or text..." style="width:100%;"/><br><br>
+  <button class="tool-btn" onclick="encodeURL()">Encode</button>
+  <button class="tool-btn" onclick="decodeURL()">Decode</button>
+  <button class="copy-btn" onclick="copyToClipboard('url-output')">Copy</button>
+  <output id="url-output"></output>
+</div>
+
+<!-- 4) Base64 Encoder / Decoder -->
+<div id="base64tool" class="tabcontent">
+  <h2>Base64 Encode / Decode</h2>
+  <textarea id="base64-input" rows="3" style="width:100%;" placeholder="Enter text..."></textarea><br>
+  <button class="tool-btn" onclick="toBase64()">Encode</button>
+  <button class="tool-btn" onclick="fromBase64()">Decode</button>
+  <button class="copy-btn" onclick="copyToClipboard('base64-output')">Copy</button>
+  <output id="base64-output"></output>
+</div>
+
+<!-- 5) JSON Formatter & Validator -->
+<div id="jsontool" class="tabcontent">
+  <h2>JSON Formatter & Validator</h2>
+  <textarea id="json-input" rows="6" style="width:100%;" placeholder='Paste JSON here (e.g. {"name":"x"})'></textarea><br>
+  <button class="tool-btn" onclick="formatJSON()">Format</button>
+  <button class="tool-btn" onclick="minifyJSON()">Minify</button>
+  <button class="copy-btn" onclick="copyToClipboard('json-output')">Copy</button>
+  <output id="json-output"></output>
+</div>
+
+<!-- 6) HTML Minifier / Beautifier -->
+<div id="htmltool" class="tabcontent">
+  <h2>HTML Minifier / Beautifier</h2>
+  <textarea id="html-input" rows="6" style="width:100%;" placeholder="Paste HTML here..."></textarea><br>
+  <button class="tool-btn" onclick="beautifyHTML()">Beautify</button>
+  <button class="tool-btn" onclick="minifyHTML()">Minify</button>
+  <button class="copy-btn" onclick="copyToClipboard('html-output')">Copy</button>
+  <output id="html-output"></output>
+</div>
+
+<!-- 7) YouTube Tag Extractor -->
+<div id="yttags" class="tabcontent">
+  <h2>YouTube Tag Extractor</h2>
+  <textarea id="yttags-input" rows="4" style="width:100%;" placeholder="Paste video description or tag string here..."></textarea><br>
+  <button class="tool-btn" onclick="extractYTtags()">Extract Tags</button>
+  <button class="copy-btn" onclick="copyToClipboard('yttags-output')">Copy</button>
+  <output id="yttags-output"></output>
+  <p style="font-size:12px;color:#666;margin-top:8px;">Tip: For automatic extraction from URL you need YouTube Data API (optional).</p>
+</div>
+
+<!-- 8) Text Case Converter -->
+<div id="case" class="tabcontent">
+  <h2>Text Case Converter</h2>
+  <textarea id="case-input" rows="4" style="width:100%;" placeholder="Paste text here..."></textarea><br>
+  <button class="tool-btn" onclick="toUpperCaseText()">UPPERCASE</button>
+  <button class="tool-btn" onclick="toLowerCaseText()">lowercase</button>
+  <button class="tool-btn" onclick="toTitleCaseText()">Title Case</button>
+  <button class="copy-btn" onclick="copyToClipboard('case-output')">Copy</button>
+  <output id="case-output"></output>
+</div>
+  
+
 <!-- Footer -->
 <footer>
 <p>&copy; 2025 SEO NOVA. All rights reserved.</p>
@@ -170,6 +259,108 @@ footer a{color:#fff;text-decoration:none;margin:0 5px;}
 <a href="pages/contact.html">Contact</a>
 </p>
 </footer>
+
+<script>
+// ========== 1) Meta Title Length Checker ==========
+function checkTitleLen(){
+  const v = document.getElementById('titlecheck-input').value || '';
+  const len = v.length;
+  let note = `Length: ${len} characters.`;
+  if(len<=60) note += ' ✅ Within 60 chars.';
+  else note += ' ⚠️ Too long (recommended ≤ 60).';
+  document.getElementById('titlecheck-output').innerText = note;
+}
+
+// ========== 2) Meta Description Analyzer ==========
+function analyzeMetaDesc(){
+  const v = document.getElementById('metadesc-input').value || '';
+  const len = v.length;
+  const words = v.trim().length ? v.trim().split(/\s+/).length : 0;
+  let note = `Chars: ${len} | Words: ${words}.`;
+  if(len<=160) note += ' ✅ OK (≤160 chars).';
+  else note += ' ⚠️ Exceeds 160 chars.';
+  document.getElementById('metadesc-output').innerText = note;
+}
+
+// ========== 3) URL Encoder / Decoder ==========
+function encodeURL(){ const v=document.getElementById('url-input').value||''; document.getElementById('url-output').innerText = encodeURIComponent(v); }
+function decodeURL(){ const v=document.getElementById('url-input').value||''; try{ document.getElementById('url-output').innerText = decodeURIComponent(v); }catch(e){ document.getElementById('url-output').innerText = 'Invalid encoded string'; } }
+
+// ========== 4) Base64 Encode / Decode ==========
+function toBase64(){ const v=document.getElementById('base64-input').value||''; try{ document.getElementById('base64-output').innerText = btoa(unescape(encodeURIComponent(v))); }catch(e){ document.getElementById('base64-output').innerText='Encoding error'; } }
+function fromBase64(){ const v=document.getElementById('base64-input').value||''; try{ document.getElementById('base64-output').innerText = decodeURIComponent(escape(atob(v))); }catch(e){ document.getElementById('base64-output').innerText='Decoding error'; } }
+
+// ========== 5) JSON Formatter & Validator ==========
+function formatJSON(){
+  const t=document.getElementById('json-input').value;
+  try{
+    const obj=JSON.parse(t);
+    document.getElementById('json-output').innerText = JSON.stringify(obj, null, 2);
+  }catch(e){
+    document.getElementById('json-output').innerText = 'Invalid JSON: '+e.message;
+  }
+}
+function minifyJSON(){
+  const t=document.getElementById('json-input').value;
+  try{
+    const obj=JSON.parse(t);
+    document.getElementById('json-output').innerText = JSON.stringify(obj);
+  }catch(e){
+    document.getElementById('json-output').innerText = 'Invalid JSON: '+e.message;
+  }
+}
+
+// ========== 6) HTML Minify / Beautify (basic) ==========
+function beautifyHTML(){
+  const src = document.getElementById('html-input').value || '';
+  try{
+    const formatted = src.replace(/>\s*</g, '>\n<').split('\n').map(line=>line.trim()).join('\n');
+    document.getElementById('html-output').innerText = formatted;
+  }catch(e){
+    document.getElementById('html-output').innerText='Error formatting HTML';
+  }
+}
+function minifyHTML(){
+  const src = document.getElementById('html-input').value || '';
+  const mini = src.replace(/\n/g,'').replace(/\s{2,}/g,' ').replace(/>\s+</g,'><').trim();
+  document.getElementById('html-output').innerText = mini;
+}
+
+// ========== 7) YouTube Tag Extractor (from pasted text) ==========
+function extractYTtags(){
+  const txt = (document.getElementById('yttags-input').value || '').replace(/\n/g,' ');
+  if(!txt){ document.getElementById('yttags-output').innerText='Paste description or tag list'; return; }
+  let tags = [];
+  const hash = txt.match(/#\w[\w-]*/g);
+  if(hash) tags = tags.concat(hash.map(h=>h.replace(/^#/,'')));
+  const m = txt.match(/tags?:\s*([^.|]+)/i);
+  if(m && m[1]) tags = tags.concat(m[1].split(/[,;|]/).map(s=>s.trim()).filter(Boolean));
+  if(tags.length===0){
+    const words = txt.toLowerCase().match(/\b[a-z0-9\-]{3,}\b/g)||[];
+    const freq = {};
+    words.forEach(w=>freq[w]=(freq[w]||0)+1);
+    tags = Object.keys(freq).sort((a,b)=>freq[b]-freq[a]).slice(0,15);
+  }
+  document.getElementById('yttags-output').innerText = tags.filter((v,i,a)=>v && a.indexOf(v)===i).join(', ');
+}
+
+// ========== 8) Text Case Converter ==========
+function toUpperCaseText(){ const v=document.getElementById('case-input').value||''; document.getElementById('case-output').innerText=v.toUpperCase(); }
+function toLowerCaseText(){ const v=document.getElementById('case-input').value||''; document.getElementById('case-output').innerText=v.toLowerCase(); }
+function toTitleCaseText(){ const v=document.getElementById('case-input').value||''; const t=v.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase()); document.getElementById('case-output').innerText=t; }
+
+// Utility: copy function (if you don't have one)
+function copyToClipboard(id){
+  try{
+    const text = document.getElementById(id).innerText || document.getElementById(id).value || '';
+    navigator.clipboard.writeText(text);
+    alert('Copied to clipboard!');
+  }catch(e){
+    alert('Copy failed');
+  }
+}
+</script>
+  
 
 <script>
 // Tab Navigation
