@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SEO NOVA - Free SEO Tools Online</title>
-<meta name="description" content="SEO NOVA offers 10+ free online SEO tools with premium UI, sticky navigation, tabs, copy buttons, and mobile optimization.">
-<meta name="keywords" content="Free SEO Tools, Meta Tag Generator, Keyword Density Checker, Word Counter, Domain Age Checker, Robots.txt Generator, Sitemap Generator, Backlink Maker, Plagiarism Checker, PageSpeed Tester, SEO Score Analyzer">
+<title>SEO NOVA Tools - Free Online SEO Tools</title>
+<meta name="description" content="SEO NOVA offers 15+ free online SEO tools including Meta Tag Generator, Keyword Density Checker, Word Counter, Robots.txt Generator, Sitemap Generator and more.">
+<meta name="keywords" content="SEO Tools, Free SEO Tools, Meta Tag Generator, Keyword Density Checker, Word Counter, Robots.txt Generator, Sitemap Generator">
 <meta name="author" content="SEO NOVA">
 <style>
-body{margin:0;padding:0;font-family:Arial,sans-serif;background:#f0f4f8;color:#333;}
+body{margin:0;padding:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#333;}
 header{background:#1e70bf;color:#fff;padding:20px;text-align:center;position:sticky;top:0;z-index:100;}
 header h1{margin:0;font-size:2em;}
+header p{margin:5px 0;}
 nav{background:#145a9c;display:flex;flex-wrap:wrap;justify-content:center;position:sticky;top:72px;z-index:99;}
 nav button{background:#145a9c;color:#fff;border:none;padding:12px 20px;cursor:pointer;margin:2px;border-radius:5px;}
 nav button.active, nav button:hover{background:#0f3d66;}
@@ -23,13 +24,14 @@ button.copy-btn{background:#28a745;margin-left:10px;}
 button.copy-btn:hover{background:#1e7e34;}
 output{display:block;margin-top:10px;padding:10px;background:#e8f0fe;border-radius:5px;white-space:pre-wrap;}
 footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:20px;}
+footer a{color:#fff;text-decoration:none;margin:0 5px;}
 @media(max-width:768px){nav{flex-direction:column;} nav button{padding:10px;}}
 </style>
 </head>
 <body>
 
 <header>
-<h1>SEO NOVA</h1>
+<h1>SEO NOVA Tools</h1>
 <p>All your SEO tools in one place</p>
 </header>
 
@@ -46,13 +48,6 @@ footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:2
 <button class="tablinks" onclick="openTab(event,'seoscore')">SEO Score Analyzer</button>
 <button class="tablinks" onclick="openTab(event,'serp')">SERP Simulator</button>
 <button class="tablinks" onclick="openTab(event,'aimeta')">AI Meta Writer</button>
-<button class="tablinks" onclick="openTab(event,'alttext')">Image ALT Generator</button>
-<button class="tablinks" onclick="openTab(event,'youtube')">YouTube Tag Extractor</button>
-<button class="tablinks" onclick="openTab(event,'opengraph')">Open Graph Generator</button>
-<button class="tablinks" onclick="openTab(event,'twittercard')">Twitter Card Generator</button>
-<button class="tablinks" onclick="openTab(event,'brokenlink')">Broken Link Checker</button>
-<button class="tablinks" onclick="openTab(event,'backcount')">Backlink Counter</button>
-<button class="tablinks" onclick="openTab(event,'schema')">Schema Generator</button>
 </nav>
 
 <div class="container">
@@ -60,7 +55,7 @@ footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:2
 <!-- Meta Tag Generator -->
 <div id="meta" class="tabcontent" style="display:block;">
 <h2>Meta Tag Generator 🏷️</h2>
-<textarea id="meta-input" rows="4" style="width:100%;" placeholder="Enter description text here..."></textarea><br>
+<textarea id="meta-input" rows="4" style="width:100%;" placeholder="Enter description here..."></textarea><br>
 <button class="tool-btn" onclick="generateMeta()">Generate Meta Tags</button>
 <button class="copy-btn" onclick="copyToClipboard('meta-output')">Copy</button>
 <output id="meta-output"></output>
@@ -165,22 +160,14 @@ footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:2
 <output id="aimeta-output"></output>
 </div>
 
-<!-- Image ALT Generator -->
-<div id="alttext" class="tabcontent">
-<h2>Image ALT Text Generator 🖼️</h2>
-<input type="text" id="alttext-input" placeholder="Enter Image Name or URL..." style="width:80%;"/><br>
-<button class="tool-btn" onclick="generateALT()">Generate ALT Text</button>
-<output id="alt-output"></output>
-</div>
-
 <!-- Footer -->
 <footer>
 <p>&copy; 2025 SEO NOVA. All rights reserved.</p>
 <p>
-<a href="pages/about.html" style="color:#fff;">About</a> |
-<a href="pages/privacy.html" style="color:#fff;">Privacy Policy</a> |
-<a href="pages/terms.html" style="color:#fff;">Terms</a> |
-<a href="pages/contact.html" style="color:#fff;">Contact</a>
+<a href="pages/about.html">About</a> |
+<a href="pages/privacy.html">Privacy Policy</a> |
+<a href="pages/terms.html">Terms</a> |
+<a href="pages/contact.html">Contact</a>
 </p>
 </footer>
 
@@ -216,9 +203,7 @@ function testPageSpeed(){ var url=document.getElementById("pagespeed-input").val
 function analyzeSEO(){ var text=document.getElementById("seoscore-input").value; document.getElementById("seoscore-output").innerText="SEO Score: 75/100 (demo)"; }
 function simulateSERP(){ var title=document.getElementById("serp-title").value||"Example Title"; var url=document.getElementById("serp-url").value||"https://example.com"; var desc=document.getElementById("serp-desc").value||"Example meta description"; document.getElementById("serp-output").innerHTML='<div style="border:1px solid #ddd;padding:15px;border-radius:8px;"><p style="color:#1a0dab;font-size:18px;margin:0;">'+title+'</p><p style="color:#006621;font-size:14px;margin:0;">'+url+'</p><p style="color:#545454;font-size:13px;">'+desc+'</p></div>'; }
 function generateAIMeta(){ var text=document.getElementById("aimeta-input").value; document.getElementById("aimeta-output").innerText="Generated Meta Title: "+text+"\nGenerated Description: "+text; }
-function generateALT(){ var text=document.getElementById("alttext-input").value; document.getElementById("alt-output").innerText="ALT text for image: "+text; }
 </script>
 
 </body>
-  </html>
-                                                                                
+</html>
