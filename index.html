@@ -1,400 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SEO NOVA Tools - Free Online SEO Tools</title>
-<meta name="description" content="SEO NOVA offers 15+ free online SEO tools including Meta Tag Generator, Keyword Density Checker, Word Counter, Robots.txt Generator, Sitemap Generator and more.">
-<meta name="keywords" content="SEO Tools, Free SEO Tools, Meta Tag Generator, Keyword Density Checker, Word Counter, Robots.txt Generator, Sitemap Generator">
-<meta name="author" content="SEO NOVA">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SEO NOVA - All Your SEO Tools in One Place</title>
+<meta name="description" content="SEO NOVA: 20 free online SEO tools — Meta Tag Generator, Keyword Density, Word Counter, Sitemap Generator, SERP Simulator, AI Meta Writer and more." />
+<meta name="author" content="SEO NOVA" />
 <style>
-body{margin:0;padding:0;font-family:Arial,sans-serif;background:#f5f7fa;color:#333;}
-header{background:#1e70bf;color:#fff;padding:20px;text-align:center;position:sticky;top:0;z-index:100;}
-header h1{margin:0;font-size:2em;}
-header p{margin:5px 0;}
-nav{background:#145a9c;display:flex;flex-wrap:wrap;justify-content:center;position:sticky;top:72px;z-index:99;}
-nav button{background:#145a9c;color:#fff;border:none;padding:12px 20px;cursor:pointer;margin:2px;border-radius:5px;}
-nav button.active, nav button:hover{background:#0f3d66;}
-.container{max-width:1000px;margin:20px auto;padding:0 15px;}
-.tabcontent{display:none;background:#fff;padding:20px;margin-bottom:20px;border-radius:10px;box-shadow:0 2px 5px rgba(0,0,0,0.1);}
-.tabcontent h2{color:#1e70bf;margin-top:0;}
-button.tool-btn{background:#1e70bf;color:#fff;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;margin-top:5px;}
-button.tool-btn:hover{background:#145a9c;}
-button.copy-btn{background:#28a745;margin-left:10px;}
-button.copy-btn:hover{background:#1e7e34;}
-output{display:block;margin-top:10px;padding:10px;background:#e8f0fe;border-radius:5px;white-space:pre-wrap;}
-footer{text-align:center;padding:20px;background:#1e70bf;color:#fff;margin-top:20px;}
-footer a{color:#fff;text-decoration:none;margin:0 5px;}
-@media(max-width:768px){nav{flex-direction:column;} nav button{padding:10px;}}
+:root{
+  --blue:#1e70bf;
+  --blue-dark:#145a9c;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#f0f4f8;
+  --success:#28a745;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:#222;line-height:1.4}
+header{background:var(--blue);color:#fff;padding:22px 16px;text-align:center;position:sticky;top:0;z-index:100}
+header h1{margin:0;font-size:1.6rem}
+header p{margin:6px 0 0;color:#e9f2fb}
+nav{background:var(--blue-dark);display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:8px;position:sticky;top:72px;z-index:99}
+nav .tablinks{background:transparent;border:0;color:#fff;padding:10px 12px;border-radius:6px;cursor:pointer;font-size:0.9rem}
+nav .tablinks.active, nav .tablinks:hover{background:#0f3d66}
+.container{max-width:1000px;margin:20px auto;padding:0 16px}
+.tabcontent{display:none;background:var(--card);padding:18px;border-radius:10px;margin-bottom:16px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+.tabcontent h2{color:var(--blue);margin-top:0}
+textarea,input[type="text"]{width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;font-size:0.95rem}
+button.tool-btn{background:var(--blue);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer;margin:6px 4px 0 0}
+button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10px;border-radius:8px;cursor:pointer;margin-left:8px}
+.output{display:block;margin-top:12px;padding:12px;background:#f7fbff;border-radius:8px;border:1px solid #e6f0fb;white-space:pre-wrap;font-family:monospace}
+.ad-placeholder{margin-top:12px;padding:10px;border-radius:8px;border:1px dashed #cbd5e1;background:#fff}
+.footer{background:var(--blue);color:#fff;padding:18px;text-align:center;margin-top:20px;border-top-left-radius:6px;border-top-right-radius:6px}
+.footer a{color:#fff;text-decoration:underline;margin:0 6px}
+@media(max-width:720px){nav{gap:4px;padding:6px} header h1{font-size:1.3rem} .container{padding:0 12px}}
 </style>
 </head>
 <body>
 
 <header>
-<h1>SEO NOVA Tools</h1>
-<p>All your SEO tools in one place</p>
+  <h1>SEO NOVA</h1>
+  <p>All Your SEO Tools in One Place</p>
 </header>
 
-<nav>
-<button class="tablinks active" onclick="openTab(event,'meta')">Meta Tag Generator</button>
-<button class="tablinks" onclick="openTab(event,'keyword')">Keyword Density Checker</button>
-<button class="tablinks" onclick="openTab(event,'word')">Word Counter</button>
-<button class="tablinks" onclick="openTab(event,'domain')">Domain Age Checker</button>
-<button class="tablinks" onclick="openTab(event,'robots')">Robots.txt Generator</button>
-<button class="tablinks" onclick="openTab(event,'sitemap')">Sitemap Generator</button>
-<button class="tablinks" onclick="openTab(event,'backlink')">Backlink Maker</button>
-<button class="tablinks" onclick="openTab(event,'plagiarism')">Plagiarism Checker</button>
-<button class="tablinks" onclick="openTab(event,'pagespeed')">PageSpeed Tester</button>
-<button class="tablinks" onclick="openTab(event,'seoscore')">SEO Score Analyzer</button>
-<button class="tablinks" onclick="openTab(event,'serp')">SERP Simulator</button>
-<button class="tablinks" onclick="openTab(event,'aimeta')">AI Meta Writer</button>
-<button class="tablinks" onclick="openTab(event,'titlecheck')">Meta Title Length</button>
-<button class="tablinks" onclick="openTab(event,'metadesc')">Meta Description Analyzer</button>
-<button class="tablinks" onclick="openTab(event,'urltool')">URL Encoder/Decoder</button>
-<button class="tablinks" onclick="openTab(event,'base64tool')">Base64 Encode/Decode</button>
-<button class="tablinks" onclick="openTab(event,'jsontool')">JSON Formatter</button>
-<button class="tablinks" onclick="openTab(event,'htmltool')">HTML Beautify/Minify</button>
-<button class="tablinks" onclick="openTab(event,'yttags')">YouTube Tag Extractor</button>
-<button class="tablinks" onclick="openTab(event,'case')">Text Case Converter</button>
-  
+<nav id="mainNav">
+  <!-- Primary tools (existing 12) -->
+  <button class="tablinks active" onclick="openTab(event,'meta')">Meta Tag Generator</button>
+  <button class="tablinks" onclick="openTab(event,'keyword')">Keyword Density</button>
+  <button class="tablinks" onclick="openTab(event,'word')">Word Counter</button>
+  <button class="tablinks" onclick="openTab(event,'domain')">Domain Age</button>
+  <button class="tablinks" onclick="openTab(event,'robots')">Robots.txt</button>
+  <button class="tablinks" onclick="openTab(event,'sitemap')">Sitemap</button>
+  <button class="tablinks" onclick="openTab(event,'backlink')">Backlink Maker</button>
+  <button class="tablinks" onclick="openTab(event,'plagiarism')">Plagiarism</button>
+  <button class="tablinks" onclick="openTab(event,'pagespeed')">PageSpeed</button>
+  <button class="tablinks" onclick="openTab(event,'seoscore')">SEO Score</button>
+  <button class="tablinks" onclick="openTab(event,'serp')">SERP Simulator</button>
+  <button class="tablinks" onclick="openTab(event,'aimeta')">AI Meta Writer</button>
+
+  <!-- New 8 tools -->
+  <button class="tablinks" onclick="openTab(event,'titlecheck')">Meta Title Len</button>
+  <button class="tablinks" onclick="openTab(event,'metadesc')">Meta Desc Analyzer</button>
+  <button class="tablinks" onclick="openTab(event,'urltool')">URL Encode/Decode</button>
+  <button class="tablinks" onclick="openTab(event,'base64tool')">Base64</button>
+  <button class="tablinks" onclick="openTab(event,'jsontool')">JSON Formatter</button>
+  <button class="tablinks" onclick="openTab(event,'htmltool')">HTML Beautify</button>
+  <button class="tablinks" onclick="openTab(event,'yttags')">YouTube Tag Extractor</button>
+  <button class="tablinks" onclick="openTab(event,'case')">Text Case</button>
 </nav>
 
 <div class="container">
 
-<!-- Meta Tag Generator -->
-<div id="meta" class="tabcontent" style="display:block;">
-<h2>Meta Tag Generator 🏷️</h2>
-<textarea id="meta-input" rows="4" style="width:100%;" placeholder="Enter description here..."></textarea><br>
-<button class="tool-btn" onclick="generateMeta()">Generate Meta Tags</button>
-<button class="copy-btn" onclick="copyToClipboard('meta-output')">Copy</button>
-<output id="meta-output"></output>
-</div>
+  <!-- ========== EXISTING 12 TOOLS ========== -->
 
-<!-- Keyword Density Checker -->
-<div id="keyword" class="tabcontent">
-<h2>Keyword Density Checker 🔑</h2>
-<textarea id="keyword-input" rows="4" style="width:100%;" placeholder="Paste your content here..."></textarea><br>
-<button class="tool-btn" onclick="checkKeyword()">Check Density</button>
-<button class="copy-btn" onclick="copyToClipboard('keyword-output')">Copy</button>
-<output id="keyword-output"></output>
-</div>
+  <!-- Meta Tag Generator -->
+  <div id="meta" class="tabcontent" style="display:block">
+    <h2>Meta Tag Generator 🏷️</h2>
+    <textarea id="meta-input" rows="3" placeholder="Enter description..."></textarea><br>
+    <button class="tool-btn" onclick="generateMeta()">Generate</button>
+    <button class="copy-btn" onclick="copyOutput('meta-output')">Copy</button>
+    <div id="meta-output" class="output"></div>
 
-<!-- Word Counter -->
-<div id="word" class="tabcontent">
-<h2>Word Counter ✍️</h2>
-<textarea id="word-input" rows="4" style="width:100%;" placeholder="Paste your text here..."></textarea><br>
-<button class="tool-btn" onclick="countWords()">Count Words</button>
-<button class="copy-btn" onclick="copyToClipboard('word-output')">Copy</button>
-<output id="word-output"></output>
-</div>
+    <div class="ad-placeholder">Ad placeholder (Top). Replace with AdSense code when ready.</div>
+  </div>
 
-<!-- Domain Age Checker -->
-<div id="domain" class="tabcontent">
-<h2>Domain Age Checker 📅</h2>
-<input type="text" id="domain-input" placeholder="Enter Domain e.g., example.com" style="width:80%;" /><br>
-<button class="tool-btn" onclick="checkDomain()">Check Age</button>
-<button class="copy-btn" onclick="copyToClipboard('domain-output')">Copy</button>
-<output id="domain-output"></output>
-</div>
+  <!-- Keyword Density -->
+  <div id="keyword" class="tabcontent">
+    <h2>Keyword Density Checker 🔑</h2>
+    <textarea id="keyword-input" rows="5" placeholder="Paste text..."></textarea><br>
+    <button class="tool-btn" onclick="checkKeyword()">Check Density</button>
+    <button class="copy-btn" onclick="copyOutput('keyword-output')">Copy</button>
+    <div id="keyword-output" class="output"></div>
+    <div class="ad-placeholder">Affiliate / Promo area</div>
+  </div>
 
-<!-- Robots.txt Generator -->
-<div id="robots" class="tabcontent">
-<h2>Robots.txt Generator 🤖</h2>
-<textarea id="robots-input" rows="4" style="width:100%;" placeholder="Enter notes..."></textarea><br>
-<button class="tool-btn" onclick="generateRobots()">Generate Robots.txt</button>
-<button class="copy-btn" onclick="copyToClipboard('robots-output')">Copy</button>
-<output id="robots-output"></output>
-</div>
+  <!-- Word Counter -->
+  <div id="word" class="tabcontent">
+    <h2>Word Counter ✍️</h2>
+    <textarea id="word-input" rows="4" placeholder="Paste text..."></textarea><br>
+    <button class="tool-btn" onclick="countWords()">Count</button>
+    <button class="copy-btn" onclick="copyOutput('word-output')">Copy</button>
+    <div id="word-output" class="output"></div>
+  </div>
 
-<!-- Sitemap Generator -->
-<div id="sitemap" class="tabcontent">
-<h2>Sitemap Generator 🗺️</h2>
-<textarea id="sitemap-input" rows="4" style="width:100%;" placeholder="Enter URLs, one per line..."></textarea><br>
-<button class="tool-btn" onclick="generateSitemap()">Generate Sitemap</button>
-<button class="copy-btn" onclick="copyToClipboard('sitemap-output')">Copy</button>
-<output id="sitemap-output"></output>
-</div>
+  <!-- Domain Age -->
+  <div id="domain" class="tabcontent">
+    <h2>Domain Age Checker 📅</h2>
+    <input id="domain-input" type="text" placeholder="example.com" /><br><br>
+    <button class="tool-btn" onclick="checkDomain()">Check Age</button>
+    <div id="domain-output" class="output"></div>
+  </div>
 
-<!-- Backlink Maker -->
-<div id="backlink" class="tabcontent">
-<h2>Backlink Maker 🔗</h2>
-<input type="text" id="backlink-input" placeholder="Enter Your URL" style="width:80%;" /><br>
-<button class="tool-btn" onclick="generateBacklink()">Generate Backlinks</button>
-<button class="copy-btn" onclick="copyToClipboard('backlink-output')">Copy</button>
-<output id="backlink-output"></output>
-</div>
+  <!-- Robots.txt Generator -->
+  <div id="robots" class="tabcontent">
+    <h2>Robots.txt Generator 🤖</h2>
+    <textarea id="robots-input" rows="4" placeholder="Disallow /example"></textarea><br>
+    <button class="tool-btn" onclick="generateRobots()">Generate</button>
+    <div id="robots-output" class="output"></div>
+  </div>
 
-<!-- Plagiarism Checker -->
-<div id="plagiarism" class="tabcontent">
-<h2>Plagiarism Checker 📄</h2>
-<textarea id="plagiarism-input" rows="4" style="width:100%;" placeholder="Paste content to check similarity..."></textarea><br>
-<button class="tool-btn" onclick="checkPlagiarism()">Check Plagiarism</button>
-<button class="copy-btn" onclick="copyToClipboard('plagiarism-output')">Copy</button>
-<output id="plagiarism-output"></output>
-</div>
+  <!-- Sitemap Generator -->
+  <div id="sitemap" class="tabcontent">
+    <h2>Sitemap Generator 🗺️</h2>
+    <textarea id="sitemap-input" rows="5" placeholder="Enter URLs (one per line)"></textarea><br>
+    <button class="tool-btn" onclick="generateSitemap()">Generate</button>
+    <div id="sitemap-output" class="output"></div>
+  </div>
 
-<!-- PageSpeed Tester -->
-<div id="pagespeed" class="tabcontent">
-<h2>PageSpeed Tester ⚡</h2>
-<input type="text" id="pagespeed-input" placeholder="Enter URL" style="width:80%;" /><br>
-<button class="tool-btn" onclick="testPageSpeed()">Test Speed</button>
-<button class="copy-btn" onclick="copyToClipboard('pagespeed-output')">Copy</button>
-<output id="pagespeed-output"></output>
-</div>
+  <!-- Backlink Maker -->
+  <div id="backlink" class="tabcontent">
+    <h2>Backlink Maker 🔗</h2>
+    <input id="backlink-input" type="text" placeholder="https://yourdomain.com" /><br><br>
+    <button class="tool-btn" onclick="generateBacklink()">Generate</button>
+    <div id="backlink-output" class="output"></div>
+  </div>
 
-<!-- SEO Score Analyzer -->
-<div id="seoscore" class="tabcontent">
-<h2>SEO Score Analyzer 📊</h2>
-<textarea id="seoscore-input" rows="4" style="width:100%;" placeholder="Paste content or URL..."></textarea><br>
-<button class="tool-btn" onclick="analyzeSEO()">Analyze SEO</button>
-<button class="copy-btn" onclick="copyToClipboard('seoscore-output')">Copy</button>
-<output id="seoscore-output"></output>
-</div>
+  <!-- Plagiarism Checker (demo) -->
+  <div id="plagiarism" class="tabcontent">
+    <h2>Plagiarism Checker 📄</h2>
+    <textarea id="plagiarism-input" rows="5" placeholder="Paste text to check"></textarea><br>
+    <button class="tool-btn" onclick="checkPlagiarism()">Check</button>
+    <div id="plagiarism-output" class="output"></div>
+  </div>
 
-<!-- SERP Simulator -->
-<div id="serp" class="tabcontent">
-<h2>SERP Snippet Simulator 🔍</h2>
-<input id="serp-title" placeholder="Title" style="width:100%;margin-bottom:5px;"><br>
-<input id="serp-url" placeholder="URL" style="width:100%;margin-bottom:5px;"><br>
-<textarea id="serp-desc" rows="4" style="width:100%;" placeholder="Meta Description"></textarea><br>
-<button class="tool-btn" onclick="simulateSERP()">Preview</button>
-<output id="serp-output"></output>
-</div>
+  <!-- PageSpeed Tester (demo) -->
+  <div id="pagespeed" class="tabcontent">
+    <h2>PageSpeed Tester ⚡</h2>
+    <input id="pagespeed-input" type="text" placeholder="https://example.com" /><br><br>
+    <button class="tool-btn" onclick="testPageSpeed()">Test</button>
+    <div id="pagespeed-output" class="output"></div>
+  </div>
 
-<!-- AI Meta Writer -->
-<div id="aimeta" class="tabcontent">
-<h2>AI Meta Writer ✨</h2>
-<textarea id="aimeta-input" rows="4" style="width:100%;" placeholder="Enter topic or paragraph..."></textarea><br>
-<button class="tool-btn" onclick="generateAIMeta()">Generate Meta Title & Description</button>
-<output id="aimeta-output"></output>
-</div>
+  <!-- SEO Score Analyzer (demo) -->
+  <div id="seoscore" class="tabcontent">
+    <h2>SEO Score Analyzer 📊</h2>
+    <textarea id="seoscore-input" rows="4" placeholder="Paste content or URL"></textarea><br>
+    <button class="tool-btn" onclick="analyzeSEO()">Analyze</button>
+    <div id="seoscore-output" class="output"></div>
+  </div>
 
-<!-- 1) Meta Title Length Checker -->
-<div id="titlecheck" class="tabcontent">
-  <h2>Meta Title Length Checker</h2>
-  <input id="titlecheck-input" type="text" placeholder="Enter title..." style="width:100%;"/><br><br>
-  <button class="tool-btn" onclick="checkTitleLen()">Check Title</button>
-  <button class="copy-btn" onclick="copyToClipboard('titlecheck-output')">Copy</button>
-  <output id="titlecheck-output"></output>
-</div>
+  <!-- SERP Simulator -->
+  <div id="serp" class="tabcontent">
+    <h2>SERP Simulator 🔍</h2>
+    <input id="serp-title" type="text" placeholder="Page title" /><br><br>
+    <input id="serp-url" type="text" placeholder="https://example.com/page" /><br><br>
+    <textarea id="serp-desc" rows="3" placeholder="Meta description"></textarea><br>
+    <button class="tool-btn" onclick="simulateSERP()">Preview</button>
+    <div id="serp-output" class="output"></div>
+  </div>
 
-<!-- 2) Meta Description Analyzer -->
-<div id="metadesc" class="tabcontent">
-  <h2>Meta Description Analyzer</h2>
-  <textarea id="metadesc-input" rows="3" style="width:100%;" placeholder="Enter meta description..."></textarea><br>
-  <button class="tool-btn" onclick="analyzeMetaDesc()">Analyze Description</button>
-  <button class="copy-btn" onclick="copyToClipboard('metadesc-output')">Copy</button>
-  <output id="metadesc-output"></output>
-</div>
+  <!-- AI Meta Writer (local heuristic demo) -->
+  <div id="aimeta" class="tabcontent">
+    <h2>AI Meta Writer ✨</h2>
+    <textarea id="aimeta-input" rows="4" placeholder="Enter your page/article topic"></textarea><br>
+    <button class="tool-btn" onclick="generateAIMeta()">Generate</button>
+    <div id="aimeta-output" class="output"></div>
+  </div>
 
-<!-- 3) URL Encoder / Decoder -->
-<div id="urltool" class="tabcontent">
-  <h2>URL Encoder / Decoder</h2>
-  <input id="url-input" type="text" placeholder="Enter URL or text..." style="width:100%;"/><br><br>
-  <button class="tool-btn" onclick="encodeURL()">Encode</button>
-  <button class="tool-btn" onclick="decodeURL()">Decode</button>
-  <button class="copy-btn" onclick="copyToClipboard('url-output')">Copy</button>
-  <output id="url-output"></output>
-</div>
+  <!-- ========== NEW 8 TOOLS ========== -->
 
-<!-- 4) Base64 Encoder / Decoder -->
-<div id="base64tool" class="tabcontent">
-  <h2>Base64 Encode / Decode</h2>
-  <textarea id="base64-input" rows="3" style="width:100%;" placeholder="Enter text..."></textarea><br>
-  <button class="tool-btn" onclick="toBase64()">Encode</button>
-  <button class="tool-btn" onclick="fromBase64()">Decode</button>
-  <button class="copy-btn" onclick="copyToClipboard('base64-output')">Copy</button>
-  <output id="base64-output"></output>
-</div>
+  <!-- 1 Meta Title Length Checker -->
+  <div id="titlecheck" class="tabcontent">
+    <h2>Meta Title Length Checker</h2>
+    <input id="titlecheck-input" type="text" placeholder="Enter title..." /><br><br>
+    <button class="tool-btn" onclick="checkTitleLen()">Check</button>
+    <button class="copy-btn" onclick="copyOutput('titlecheck-output')">Copy</button>
+    <div id="titlecheck-output" class="output"></div>
+  </div>
 
-<!-- 5) JSON Formatter & Validator -->
-<div id="jsontool" class="tabcontent">
-  <h2>JSON Formatter & Validator</h2>
-  <textarea id="json-input" rows="6" style="width:100%;" placeholder='Paste JSON here (e.g. {"name":"x"})'></textarea><br>
-  <button class="tool-btn" onclick="formatJSON()">Format</button>
-  <button class="tool-btn" onclick="minifyJSON()">Minify</button>
-  <button class="copy-btn" onclick="copyToClipboard('json-output')">Copy</button>
-  <output id="json-output"></output>
-</div>
+  <!-- 2 Meta Description Analyzer -->
+  <div id="metadesc" class="tabcontent">
+    <h2>Meta Description Analyzer</h2>
+    <textarea id="metadesc-input" rows="3" placeholder="Enter meta description..."></textarea><br>
+    <button class="tool-btn" onclick="analyzeMetaDesc()">Analyze</button>
+    <button class="copy-btn" onclick="copyOutput('metadesc-output')">Copy</button>
+    <div id="metadesc-output" class="output"></div>
+  </div>
 
-<!-- 6) HTML Minifier / Beautifier -->
-<div id="htmltool" class="tabcontent">
-  <h2>HTML Minifier / Beautifier</h2>
-  <textarea id="html-input" rows="6" style="width:100%;" placeholder="Paste HTML here..."></textarea><br>
-  <button class="tool-btn" onclick="beautifyHTML()">Beautify</button>
-  <button class="tool-btn" onclick="minifyHTML()">Minify</button>
-  <button class="copy-btn" onclick="copyToClipboard('html-output')">Copy</button>
-  <output id="html-output"></output>
-</div>
+  <!-- 3 URL Encoder / Decoder -->
+  <div id="urltool" class="tabcontent">
+    <h2>URL Encoder / Decoder</h2>
+    <input id="url-input" type="text" placeholder="Enter URL or text..." /><br><br>
+    <button class="tool-btn" onclick="encodeURL()">Encode</button>
+    <button class="tool-btn" onclick="decodeURL()">Decode</button>
+    <button class="copy-btn" onclick="copyOutput('url-output')">Copy</button>
+    <div id="url-output" class="output"></div>
+  </div>
 
-<!-- 7) YouTube Tag Extractor -->
-<div id="yttags" class="tabcontent">
-  <h2>YouTube Tag Extractor</h2>
-  <textarea id="yttags-input" rows="4" style="width:100%;" placeholder="Paste video description or tag string here..."></textarea><br>
-  <button class="tool-btn" onclick="extractYTtags()">Extract Tags</button>
-  <button class="copy-btn" onclick="copyToClipboard('yttags-output')">Copy</button>
-  <output id="yttags-output"></output>
-  <p style="font-size:12px;color:#666;margin-top:8px;">Tip: For automatic extraction from URL you need YouTube Data API (optional).</p>
-</div>
+  <!-- 4 Base64 -->
+  <div id="base64tool" class="tabcontent">
+    <h2>Base64 Encode / Decode</h2>
+    <textarea id="base64-input" rows="3" placeholder="Enter text..."></textarea><br>
+    <button class="tool-btn" onclick="toBase64()">Encode</button>
+    <button class="tool-btn" onclick="fromBase64()">Decode</button>
+    <button class="copy-btn" onclick="copyOutput('base64-output')">Copy</button>
+    <div id="base64-output" class="output"></div>
+  </div>
 
-<!-- 8) Text Case Converter -->
-<div id="case" class="tabcontent">
-  <h2>Text Case Converter</h2>
-  <textarea id="case-input" rows="4" style="width:100%;" placeholder="Paste text here..."></textarea><br>
-  <button class="tool-btn" onclick="toUpperCaseText()">UPPERCASE</button>
-  <button class="tool-btn" onclick="toLowerCaseText()">lowercase</button>
-  <button class="tool-btn" onclick="toTitleCaseText()">Title Case</button>
-  <button class="copy-btn" onclick="copyToClipboard('case-output')">Copy</button>
-  <output id="case-output"></output>
+  <!-- 5 JSON Formatter & Validator -->
+  <div id="jsontool" class="tabcontent">
+    <h2>JSON Formatter & Validator</h2>
+    <textarea id="json-input" rows="6" placeholder='Paste JSON here (e.g. {"name":"x"})'></textarea><br>
+    <button class="tool-btn" onclick="formatJSON()">Format</button>
+    <button class="tool-btn" onclick="minifyJSON()">Minify</button>
+    <button class="copy-btn" onclick="copyOutput('json-output')">Copy</button>
+    <div id="json-output" class="output"></div>
+  </div>
+
+  <!-- 6 HTML Minifier / Beautifier -->
+  <div id="htmltool" class="tabcontent">
+    <h2>HTML Minifier / Beautifier</h2>
+    <textarea id="html-input" rows="6" placeholder="Paste HTML here..."></textarea><br>
+    <button class="tool-btn" onclick="beautifyHTML()">Beautify</button>
+    <button class="tool-btn" onclick="minifyHTML()">Minify</button>
+    <button class="copy-btn" onclick="copyOutput('html-output')">Copy</button>
+    <div id="html-output" class="output"></div>
+  </div>
+
+  <!-- 7 YouTube Tag Extractor -->
+  <div id="yttags" class="tabcontent">
+    <h2>YouTube Tag Extractor</h2>
+    <textarea id="yttags-input" rows="4" placeholder="Paste video description or tag string here..."></textarea><br>
+    <button class="tool-btn" onclick="extractYTtags()">Extract Tags</button>
+    <button class="copy-btn" onclick="copyOutput('yttags-output')">Copy</button>
+    <div id="yttags-output" class="output"></div>
+    <p style="font-size:12px;color:#666;margin-top:8px;">Tip: For automatic extraction from URL you need YouTube Data API.</p>
+  </div>
+
+  <!-- 8 Text Case Converter -->
+  <div id="case" class="tabcontent">
+    <h2>Text Case Converter</h2>
+    <textarea id="case-input" rows="4" placeholder="Paste text here..."></textarea><br>
+    <button class="tool-btn" onclick="toUpperCaseText()">UPPERCASE</button>
+    <button class="tool-btn" onclick="toLowerCaseText()">lowercase</button>
+    <button class="tool-btn" onclick="toTitleCaseText()">Title Case</button>
+    <button class="copy-btn" onclick="copyOutput('case-output')">Copy</button>
+    <div id="case-output" class="output"></div>
+  </div>
+
+  <!-- End container -->
 </div>
-  
 
 <!-- Footer -->
-<footer>
-<p>&copy; 2025 SEO NOVA. All rights reserved.</p>
-<p>
-<a href="pages/about.html">About</a> |
-<a href="pages/privacy.html">Privacy Policy</a> |
-<a href="pages/terms.html">Terms</a> |
-<a href="pages/contact.html">Contact</a>
-</p>
-</footer>
+<div class="footer">
+  <p>© 2025 SEO NOVA Tools — Developed by V. Banerjee</p>
+  <p>
+    <a href="pages/about.html" target="_blank">About</a> |
+    <a href="pages/privacy.html" target="_blank">Privacy Policy</a> |
+    <a href="pages/terms.html" target="_blank">Terms</a> |
+    <a href="pages/contact.html" target="_blank">Contact</a>
+  </p>
+  <div style="margin-top:8px;color:#e9f2fb;font-size:12px;">Ad placeholders present — replace with your AdSense & affiliate code</div>
+</div>
 
+<!-- ========== SCRIPTS: ALL TOOL FUNCTIONS ========== -->
 <script>
-// ========== 1) Meta Title Length Checker ==========
+// Tab nav
+function openTab(evt, tabName){
+  var i, tabcontent, tablinks;
+  tabcontent=document.getElementsByClassName("tabcontent");
+  for(i=0;i<tabcontent.length;i++){ tabcontent[i].style.display="none"; }
+  tablinks=document.getElementsByClassName("tablinks");
+  for(i=0;i<tablinks.length;i++){ tablinks[i].className = tablinks[i].className.replace(" active",""); }
+  var el = document.getElementById(tabName);
+  if(el) el.style.display="block";
+  if(evt && evt.currentTarget) evt.currentTarget.className += " active";
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// Utility copy
+function copyOutput(id){
+  try{
+    const el = document.getElementById(id);
+    const txt = el ? (el.innerText || el.value || '') : '';
+    navigator.clipboard.writeText(txt);
+    alert('Copied to clipboard!');
+  }catch(e){ alert('Copy failed'); }
+}
+
+/* ------------------- EXISTING 12 tools: functions ------------------- */
+
+// Meta Tag Generator
+function generateMeta(){
+  const text=document.getElementById('meta-input').value.trim();
+  const meta = '<meta name="description" content="'+text+'">\n<meta name="keywords" content="'+text.split(/\s+/).slice(0,20).join(', ')+'">';
+  document.getElementById('meta-output').innerText = meta;
+}
+
+// Keyword Density
+function checkKeyword(){
+  const txt=document.getElementById('keyword-input').value.toLowerCase();
+  const words=txt.match(/\b\w+\b/g)||[];
+  const freq={};
+  words.forEach(w=>freq[w]=(freq[w]||0)+1);
+  const total=words.length||1;
+  let out='';
+  Object.keys(freq).sort((a,b)=>freq[b]-freq[a]).slice(0,30).forEach(k=>{
+    out += k + ': ' + ((freq[k]/total)*100).toFixed(2) + '%\n';
+  });
+  document.getElementById('keyword-output').innerText = out || 'No words detected';
+}
+
+// Word Counter
+function countWords(){
+  const v=document.getElementById('word-input').value.trim();
+  const n=v?v.split(/\s+/).filter(Boolean).length:0;
+  document.getElementById('word-output').innerText = 'Word Count: '+n;
+}
+
+// Domain Age (demo random)
+function checkDomain(){
+  const d=document.getElementById('domain-input').value.trim();
+  if(!d){ alert('Enter domain'); return; }
+  const years=Math.floor(Math.random()*20)+1;
+  document.getElementById('domain-output').innerText = d + ' — approx. ' + years + ' years old (demo)';
+}
+
+// Robots
+function generateRobots(){
+  const t=document.getElementById('robots-input').value.trim();
+  const out = 'User-agent: *\nDisallow:\n\n# Notes:\n# ' + t;
+  document.getElementById('robots-output').innerText = out;
+}
+
+// Sitemap
+function generateSitemap(){
+  const raw = document.getElementById('sitemap-input').value.split('\n').map(s=>s.trim()).filter(Boolean);
+  if(!raw.length){ alert('Enter at least one URL'); return; }
+  const xml = raw.map(u=>'<url><loc>'+ (u.startsWith('http')?u:u.replace(/^\/+/,'https://')) +'</loc></url>').join('\n');
+  document.getElementById('sitemap-output').innerText = '<urlset>\n' + xml + '\n</urlset>';
+}
+
+// Backlink Maker
+function generateBacklink(){
+  const u=document.getElementById('backlink-input').value.trim();
+  if(!u){ alert('Enter URL'); return; }
+  let out='';
+  for(let i=1;i<=5;i++){ out += 'https://submit'+i+'.example.com/?url='+encodeURIComponent(u)+'\n'; }
+  document.getElementById('backlink-output').innerText = out;
+}
+
+// Plagiarism Demo
+function checkPlagiarism(){
+  const t=document.getElementById('plagiarism-input').value.trim();
+  if(!t){ alert('Enter text'); return; }
+  const sim=Math.floor(Math.random()*30);
+  document.getElementById('plagiarism-output').innerText = 'Estimated similarity: ' + sim + '% (demo)';
+}
+
+// PageSpeed Demo
+function testPageSpeed(){
+  const u=document.getElementById('pagespeed-input').value.trim();
+  if(!u){ alert('Enter URL'); return; }
+  const score=Math.floor(Math.random()*100)+1;
+  document.getElementById('pagespeed-output').innerText = 'PageSpeed Score for '+u+': '+score+'/100 (demo)';
+}
+
+// SEO Score Demo
+function analyzeSEO(){
+  const txt=document.getElementById('seoscore-input').value.trim();
+  if(!txt){ alert('Enter content or URL'); return; }
+  const score=Math.floor(Math.random()*100)+1;
+  document.getElementById('seoscore-output').innerText = 'Estimated SEO Score: ' + score + '/100 (demo)';
+}
+
+// SERP Simulator
+function simulateSERP(){
+  const title=document.getElementById('serp-title').value || 'Example Title';
+  const url=document.getElementById('serp-url').value || 'https://example.com';
+  const desc=document.getElementById('serp-desc').value || 'Example meta description';
+  const html = '<div style="border:1px solid #ddd;padding:14px;border-radius:8px;background:#fff;">'
+             +'<p style="color:#1a0dab;font-size:18px;margin:0;">'+title+'</p>'
+             +'<p style="color:#006621;font-size:14px;margin:0;">'+url+'</p>'
+             +'<p style="color:#545454;font-size:13px;">'+desc+'</p></div>';
+  document.getElementById('serp-output').innerHTML = html;
+}
+
+// AI Meta Writer (heuristic)
+function generateAIMeta(){
+  const txt=document.getElementById('aimeta-input').value.trim();
+  if(!txt){ alert('Enter topic'); return; }
+  const title = txt.split(/\s+/).slice(0,7).join(' ') + ' - Tips & Guide';
+  const desc = txt.split(/\s+/).slice(0,20).join(' ') + ' — Read more for SEO-friendly tips.';
+  document.getElementById('aimeta-output').innerText = 'Title: '+title + '\nDescription: '+desc;
+}
+
+/* ------------------- NEW 8 tools functions ------------------- */
+
+// 1) Meta Title Length Checker
 function checkTitleLen(){
-  const v = document.getElementById('titlecheck-input').value || '';
-  const len = v.length;
-  let note = `Length: ${len} characters.`;
-  if(len<=60) note += ' ✅ Within 60 chars.';
-  else note += ' ⚠️ Too long (recommended ≤ 60).';
-  document.getElementById('titlecheck-output').innerText = note;
+  const v=document.getElementById('titlecheck-input').value||'';
+  const l=v.length;
+  let msg='Length: ' + l + ' characters.';
+  if(l<=60) msg += ' ✅ Good (≤60).';
+  else msg += ' ⚠️ Too long (recommended ≤60).';
+  document.getElementById('titlecheck-output').innerText = msg;
 }
 
-// ========== 2) Meta Description Analyzer ==========
+// 2) Meta Description Analyzer
 function analyzeMetaDesc(){
-  const v = document.getElementById('metadesc-input').value || '';
-  const len = v.length;
-  const words = v.trim().length ? v.trim().split(/\s+/).length : 0;
-  let note = `Chars: ${len} | Words: ${words}.`;
-  if(len<=160) note += ' ✅ OK (≤160 chars).';
-  else note += ' ⚠️ Exceeds 160 chars.';
-  document.getElementById('metadesc-output').innerText = note;
+  const v=document.getElementById('metadesc-input').value||'';
+  const len=v.length;
+  const words=v.trim()?v.trim().split(/\s+/).length:0;
+  let msg='Chars: '+len+' | Words: '+words;
+  if(len<=160) msg += ' ✅ OK (≤160).'; else msg += ' ⚠️ Exceeds 160 chars.';
+  document.getElementById('metadesc-output').innerText = msg;
 }
 
-// ========== 3) URL Encoder / Decoder ==========
+// 3) URL Encode / Decode
 function encodeURL(){ const v=document.getElementById('url-input').value||''; document.getElementById('url-output').innerText = encodeURIComponent(v); }
-function decodeURL(){ const v=document.getElementById('url-input').value||''; try{ document.getElementById('url-output').innerText = decodeURIComponent(v); }catch(e){ document.getElementById('url-output').innerText = 'Invalid encoded string'; } }
+function decodeURL(){ const v=document.getElementById('url-input').value||''; try{ document.getElementById('url-output').innerText = decodeURIComponent(v); }catch(e){ document.getElementById('url-output').innerText='Invalid encoded string'; } }
 
-// ========== 4) Base64 Encode / Decode ==========
+// 4) Base64
 function toBase64(){ const v=document.getElementById('base64-input').value||''; try{ document.getElementById('base64-output').innerText = btoa(unescape(encodeURIComponent(v))); }catch(e){ document.getElementById('base64-output').innerText='Encoding error'; } }
 function fromBase64(){ const v=document.getElementById('base64-input').value||''; try{ document.getElementById('base64-output').innerText = decodeURIComponent(escape(atob(v))); }catch(e){ document.getElementById('base64-output').innerText='Decoding error'; } }
 
-// ========== 5) JSON Formatter & Validator ==========
+// 5) JSON Formatter & Validator
 function formatJSON(){
   const t=document.getElementById('json-input').value;
   try{
     const obj=JSON.parse(t);
-    document.getElementById('json-output').innerText = JSON.stringify(obj, null, 2);
-  }catch(e){
-    document.getElementById('json-output').innerText = 'Invalid JSON: '+e.message;
-  }
+    document.getElementById('json-output').innerText = JSON.stringify(obj,null,2);
+  }catch(e){ document.getElementById('json-output').innerText = 'Invalid JSON: '+e.message; }
 }
 function minifyJSON(){
   const t=document.getElementById('json-input').value;
-  try{
-    const obj=JSON.parse(t);
-    document.getElementById('json-output').innerText = JSON.stringify(obj);
-  }catch(e){
-    document.getElementById('json-output').innerText = 'Invalid JSON: '+e.message;
-  }
+  try{ const obj=JSON.parse(t); document.getElementById('json-output').innerText = JSON.stringify(obj); }catch(e){ document.getElementById('json-output').innerText = 'Invalid JSON: '+e.message; }
 }
 
-// ========== 6) HTML Minify / Beautify (basic) ==========
+// 6) HTML Beautify / Minify (basic)
 function beautifyHTML(){
-  const src = document.getElementById('html-input').value || '';
-  try{
-    const formatted = src.replace(/>\s*</g, '>\n<').split('\n').map(line=>line.trim()).join('\n');
-    document.getElementById('html-output').innerText = formatted;
-  }catch(e){
-    document.getElementById('html-output').innerText='Error formatting HTML';
-  }
+  const s=document.getElementById('html-input').value||'';
+  const formatted = s.replace(/>\s*</g,'>\n<').split('\n').map(l=>l.trim()).join('\n');
+  document.getElementById('html-output').innerText = formatted;
 }
 function minifyHTML(){
-  const src = document.getElementById('html-input').value || '';
-  const mini = src.replace(/\n/g,'').replace(/\s{2,}/g,' ').replace(/>\s+</g,'><').trim();
+  const s=document.getElementById('html-input').value||'';
+  const mini = s.replace(/\n/g,'').replace(/\s{2,}/g,' ').replace(/>\s+</g,'><').trim();
   document.getElementById('html-output').innerText = mini;
 }
 
-// ========== 7) YouTube Tag Extractor (from pasted text) ==========
+// 7) YouTube Tag Extractor (from pasted text)
 function extractYTtags(){
-  const txt = (document.getElementById('yttags-input').value || '').replace(/\n/g,' ');
-  if(!txt){ document.getElementById('yttags-output').innerText='Paste description or tag list'; return; }
-  let tags = [];
+  const txt = (document.getElementById('yttags-input').value||'').replace(/\n/g,' ');
+  if(!txt){ document.getElementById('yttags-output').innerText='Paste description or tags'; return; }
+  let tags=[];
   const hash = txt.match(/#\w[\w-]*/g);
   if(hash) tags = tags.concat(hash.map(h=>h.replace(/^#/,'')));
   const m = txt.match(/tags?:\s*([^.|]+)/i);
   if(m && m[1]) tags = tags.concat(m[1].split(/[,;|]/).map(s=>s.trim()).filter(Boolean));
   if(tags.length===0){
-    const words = txt.toLowerCase().match(/\b[a-z0-9\-]{3,}\b/g)||[];
-    const freq = {};
-    words.forEach(w=>freq[w]=(freq[w]||0)+1);
+    const words=txt.toLowerCase().match(/\b[a-z0-9\-]{3,}\b/g)||[];
+    const freq={}; words.forEach(w=>freq[w]=(freq[w]||0)+1);
     tags = Object.keys(freq).sort((a,b)=>freq[b]-freq[a]).slice(0,15);
   }
   document.getElementById('yttags-output').innerText = tags.filter((v,i,a)=>v && a.indexOf(v)===i).join(', ');
 }
 
-// ========== 8) Text Case Converter ==========
+// 8) Text Case Converter
 function toUpperCaseText(){ const v=document.getElementById('case-input').value||''; document.getElementById('case-output').innerText=v.toUpperCase(); }
 function toLowerCaseText(){ const v=document.getElementById('case-input').value||''; document.getElementById('case-output').innerText=v.toLowerCase(); }
 function toTitleCaseText(){ const v=document.getElementById('case-input').value||''; const t=v.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase()); document.getElementById('case-output').innerText=t; }
 
-// Utility: copy function (if you don't have one)
-function copyToClipboard(id){
-  try{
-    const text = document.getElementById(id).innerText || document.getElementById(id).value || '';
-    navigator.clipboard.writeText(text);
-    alert('Copied to clipboard!');
-  }catch(e){
-    alert('Copy failed');
-  }
-}
 </script>
-  
-
-<script>
-// Tab Navigation
-function openTab(evt, tabName){
-  var i, tabcontent, tablinks;
-  tabcontent=document.getElementsByClassName("tabcontent");
-  for(i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none";}
-  tablinks=document.getElementsByClassName("tablinks");
-  for(i=0;i<tablinks.length;i++){tablinks[i].className=tablinks[i].className.replace(" active","");}
-  document.getElementById(tabName).style.display="block";
-  evt.currentTarget.className+=" active";
-}
-
-// Copy
-function copyToClipboard(id){
-  var output=document.getElementById(id);
-  navigator.clipboard.writeText(output.innerText);
-  alert("Copied to clipboard!");
-}
-
-// Tools JS functions
-function generateMeta(){ var text=document.getElementById("meta-input").value; document.getElementById("meta-output").innerText='<meta name="description" content="'+text+'">\n<meta name="keywords" content="'+text.split(" ").join(", ")+'">'; }
-function checkKeyword(){ var text=document.getElementById("keyword-input").value.toLowerCase(); var words=text.match(/\b\w+\b/g)||[]; var freq={}; words.forEach(w=>freq[w]=(freq[w]||0)+1); var result=""; for(var k in freq){ result+=k+": "+((freq[k]/words.length)*100).toFixed(2)+"%\n"; } document.getElementById("keyword-output").innerText=result; }
-function countWords(){ var words=document.getElementById("word-input").value.trim().split(/\s+/).filter(w=>w.length>0); document.getElementById("word-output").innerText="Word Count: "+words.length; }
-function checkDomain(){ var domain=document.getElementById("domain-input").value.trim(); if(!domain){alert("Enter a domain");return;} var ageYears=Math.floor(Math.random()*10)+1; document.getElementById("domain-output").innerText=domain+" is approximately "+ageYears+" years old."; }
-function generateRobots(){ var text=document.getElementById("robots-input").value; document.getElementById("robots-output").innerText="User-agent: *\nDisallow:\n# "+text; }
-function generateSitemap(){ var urls=document.getElementById("sitemap-input").value.split("\n"); document.getElementById("sitemap-output").innerText=urls.map(u=>"https://"+u.trim()).join("\n"); }
-function generateBacklink(){ var url=document.getElementById("backlink-input").value.trim(); document.getElementById("backlink-output").innerText="Generated backlinks for: "+url; }
-function checkPlagiarism(){ var text=document.getElementById("plagiarism-input").value; document.getElementById("plagiarism-output").innerText="No plagiarism detected (demo)"; }
-function testPageSpeed(){ var url=document.getElementById("pagespeed-input").value; document.getElementById("pagespeed-output").innerText="PageSpeed score for "+url+": 85/100 (demo)"; }
-function analyzeSEO(){ var text=document.getElementById("seoscore-input").value; document.getElementById("seoscore-output").innerText="SEO Score: 75/100 (demo)"; }
-function simulateSERP(){ var title=document.getElementById("serp-title").value||"Example Title"; var url=document.getElementById("serp-url").value||"https://example.com"; var desc=document.getElementById("serp-desc").value||"Example meta description"; document.getElementById("serp-output").innerHTML='<div style="border:1px solid #ddd;padding:15px;border-radius:8px;"><p style="color:#1a0dab;font-size:18px;margin:0;">'+title+'</p><p style="color:#006621;font-size:14px;margin:0;">'+url+'</p><p style="color:#545454;font-size:13px;">'+desc+'</p></div>'; }
-function generateAIMeta(){ var text=document.getElementById("aimeta-input").value; document.getElementById("aimeta-output").innerText="Generated Meta Title: "+text+"\nGenerated Description: "+text; }
-</script>
-
 </body>
 </html>
