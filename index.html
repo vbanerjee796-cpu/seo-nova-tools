@@ -849,7 +849,12 @@ document.querySelectorAll('#quick-links a').forEach(link => {
   });
 });
 </script>
-
+  function generateRobots() {
+  const robots = 
+`User-agent: *
+Allow: /
+Sitemap: https://vbanerjee796-cpu.github.io/seo-nova-tools/sitemap.xml`;
+  document.getElementById("robotsResult").innerText = robots;
 </script>
 </body>
 </html>
