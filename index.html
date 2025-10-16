@@ -75,6 +75,16 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
 </head>
 <body>
 
+<!-- ✅ Step 1: Quick Navigation Section -->
+<section id="quick-links" style="margin-top:20px; text-align:center;">
+  <h2>🔗 Quick Navigation</h2>
+  <a href="#meta-tool">Meta Description Analyzer</a> |
+  <a href="#keyword-tool">Keyword Density Checker</a> |
+  <a href="#url-tool">URL Encoder / Decoder</a> |
+  <a href="#title-tool">Title Tag Generator</a> |
+  <a href="#robots-tool">Robots.txt Generator</a>
+</section>
+  
 <header>
   <h1>SEO NOVA</h1>
   <p>All Free SEO Tools in One Place</p>
@@ -212,6 +222,7 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
   <!-- Robots.txt Generator -->
   <div id="robots" class="tabcontent">
     <h2>Robots.txt Generator 🤖</h2>
+    <h2 id="robots-tool">Robots.txt Generator</h2>
     <textarea id="robots-input" rows="4" placeholder="Disallow /example"></textarea><br>
     <button class="tool-btn" onclick="generateRobots()">Generate</button>
     <div id="robots-output" class="output"></div>
@@ -424,6 +435,8 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
   <!-- 2 Meta Description Analyzer -->
   <div id="metadesc" class="tabcontent">
     <h2>Meta Description Analyzer</h2>
+    <h2 id="meta-tool">Meta Description Analyzer</h2>
+    
     <textarea id="metadesc-input" rows="3" placeholder="Enter meta description..."></textarea><br>
     <button class="tool-btn" onclick="analyzeMetaDesc()">Analyze</button>
     <button class="copy-btn" onclick="copyOutput('metadesc-output')">Copy</button>
@@ -448,6 +461,8 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
   <!-- 3 URL Encoder / Decoder -->
   <div id="urltool" class="tabcontent">
     <h2>URL Encoder / Decoder</h2>
+    <h2 id="url-tool">URL Encoder / Decoder</h2>
+    
     <input id="url-input" type="text" placeholder="Enter URL or text..." /><br><br>
     <button class="tool-btn" onclick="encodeURL()">Encode</button>
     <button class="tool-btn" onclick="decodeURL()">Decode</button>
