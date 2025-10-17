@@ -8,11 +8,8 @@
   
   <!-- ✅ SEO Optimized Head for SEO Nova Tools -->
 <title>SEO Nova Tools — Free Online SEO Utilities for Bloggers & Professionals</title>
-
-<meta name="description" content="SEO Nova पर पाएँ 20+ फ्री SEO टूल्स जैसे Keyword Research, Meta Tag Generator, Backlink Checker और अधिक। Grow your traffic fast!">
-  
-<meta name="keywords" content="SEO Tools, Free SEO Tools, Meta Tag Generator, Keyword Density Checker, Backlink Checker, Sitemap Generator, SEO Analyzer, Blogger SEO Tools, SEO Nova Tools, Google Ranking, Website Optimization">
-  
+<meta name="description" content="SEO Nova पर पाएँ 20+ फ्री SEO टूल्स जैसे Keyword Research, Meta Tag Generator, Backlink Checker और अधिक। Grow your traffic fast!">  
+<meta name="keywords" content="SEO Tools, Free SEO Tools, Meta Tag Generator, Keyword Density Checker, Backlink Checker, Sitemap Generator, SEO Analyzer, Blogger SEO Tools, SEO Nova Tools, Google Ranking, Website Optimization"> 
 <meta name="robots" content="index, follow">
 <meta name="author" content="V. Banerjee">
 <meta name="language" content="Hindi, English">
@@ -39,9 +36,8 @@
 <meta property="og:image" content="https://vbanerjee796-cpu.github.io/seo-nova-tools/images/seo-nova-banner.jpg">
   
 <!-- Favicon -->
-<link rel="icon" href="https://vbanerjee796-cpu.github.io/seo-nova-tools/images/favicon.ico" type="image/x-icon">
-  
-<meta name="description" content="SEO NOVA: 20 free online SEO tools — Meta Tag Generator, Keyword Density, Word Counter, Sitemap Generator, SERP Simulator, AI Meta Writer and more." />
+<link rel="icon" href="https://vbanerjee796-cpu.github.io/seo-nova-tools/images/favicon.ico" type="image/x-icon"> 
+<meta name="description" content="SEO NOVA: 20 free online SEO tools — Meta Tag Generator, Keyword Density, Word Counter, Sitemap Generator, SERP Simulator, AI Meta Writer and more."/>
 <meta name="author" content="SEO NOVA"/>
 <style>
 :root{
@@ -78,7 +74,18 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
 <header>
   <h1>SEO NOVA</h1>
   <p>All Free SEO Tools in One Place</p>
-  
+  <!-- Quick Navigation -->
+<section id="quick-links">
+  <h2>🔗 Quick Navigation</h2>
+  <a href="#title-tool">Title Length Checker</a>
+  <a href="#meta-tool">Meta Description Analyzer</a>
+  <a href="#url-tool">URL Encoder / Decoder</a>
+  <a href="#base64-tool">Base64 Encode/Decode</a>
+  <a href="#json-tool">JSON Formatter/Minifier</a>
+  <a href="#html-tool">HTML Beautify/Minify</a>
+  <a href="#yt-tool">YouTube Tags Extractor</a>
+  <a href="#text-case-tool">Text Case Converter</a>
+</section>
 </header>
 
 <nav id="mainNav">
@@ -95,8 +102,6 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
   <button class="tablinks" onclick="openTab(event,'seoscore')">SEO Score</button>
   <button class="tablinks" onclick="openTab(event,'serp')">SERP Simulator</button>
   <button class="tablinks" onclick="openTab(event,'aimeta')">AI Meta Writer</button>
-
-  <!-- New 8 tools -->
   <button class="tablinks" onclick="openTab(event,'titlecheck')">Meta Title Len</button>
   <button class="tablinks" onclick="openTab(event,'metadesc')">Meta Desc Analyzer</button>
   <button class="tablinks" onclick="openTab(event,'urltool')">URL Encode/Decode</button>
@@ -110,7 +115,6 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
 <div class="container">
 
   <!-- ========== EXISTING 12 TOOLS ========== -->
-
   <!-- Meta Tag Generator -->
   <div id="meta" class="tabcontent" style="display:block">
     <h3>Meta Tag Generator 🏷️</h3>
@@ -399,6 +403,7 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
 
   <!-- 1 Meta Title Length Checker -->
   <div id="titlecheck" class="tabcontent">
+    <div class="tool" id="title-tool">
     <h2>Meta Title Length Checker</h2>
     <input id="titlecheck-input" type="text" placeholder="Enter title..." /><br><br>
     <button class="tool-btn" onclick="checkTitleLen()">Check</button>
@@ -423,6 +428,7 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
 
   <!-- 2 Meta Description Analyzer -->
   <div id="metadesc" class="tabcontent">
+    <div class="tool" id="meta-tool">
     <h2>Meta Description Analyzer</h2>
     <textarea id="metadesc-input" rows="3" placeholder="Enter meta description..."></textarea><br>
     <button class="tool-btn" onclick="analyzeMetaDesc()">Analyze</button>
@@ -447,6 +453,7 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
 
   <!-- 3 URL Encoder / Decoder -->
   <div id="urltool" class="tabcontent">
+    <div class="tool" id="url-tool">
     <h2>URL Encoder / Decoder</h2>
     <input id="url-input" type="text" placeholder="Enter URL or text..." /><br><br>
     <button class="tool-btn" onclick="encodeURL()">Encode</button>
@@ -472,6 +479,7 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
 
   <!-- 4 Base64 -->
   <div id="base64tool" class="tabcontent">
+    <div class="tool" id="base64-tool">
     <h2>Base64 Encode / Decode</h2>
     <textarea id="base64-input" rows="3" placeholder="Enter text..."></textarea><br>
     <button class="tool-btn" onclick="toBase64()">Encode</button>
@@ -497,6 +505,7 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
 
   <!-- 5 JSON Formatter & Validator -->
   <div id="jsontool" class="tabcontent">
+    <div class="tool" id="json-tool">
     <h2>JSON Formatter & Validator</h2>
     <textarea id="json-input" rows="6" placeholder='Paste JSON here (e.g. {"name":"x"})'></textarea><br>
     <button class="tool-btn" onclick="formatJSON()">Format</button>
@@ -522,6 +531,7 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
 
   <!-- 6 HTML Minifier / Beautifier -->
   <div id="htmltool" class="tabcontent">
+    <div class="tool" id="html-tool">
     <h2>HTML Minifier / Beautifier</h2>
     <textarea id="html-input" rows="6" placeholder="Paste HTML here..."></textarea><br>
     <button class="tool-btn" onclick="beautifyHTML()">Beautify</button>
@@ -547,6 +557,7 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
 
   <!-- 7 YouTube Tag Extractor -->
   <div id="yttags" class="tabcontent">
+    <div class="tool" id="yt-tool">
     <h2>YouTube Tag Extractor</h2>
     <textarea id="yttags-input" rows="4" placeholder="Paste video description or tag string here..."></textarea><br>
     <button class="tool-btn" onclick="extractYTtags()">Extract Tags</button>
@@ -572,6 +583,7 @@ button.copy-btn{background:var(--success);color:#fff;border:none;padding:8px 10p
 
   <!-- 8 Text Case Converter -->
   <div id="case" class="tabcontent">
+    <div class="tool" id="text-case-tool">
     <h2>Text Case Converter</h2>
     <textarea id="case-input" rows="4" placeholder="Paste text here..."></textarea><br>
     <button class="tool-btn" onclick="toUpperCaseText()">UPPERCASE</button>
@@ -746,6 +758,10 @@ function generateAIMeta(){
 /* ------------------- NEW 8 tools functions ------------------- */
 
 // 1) Meta Title Length Checker
+  function checkTitleLen() {
+    const val = document.getElementById('titleInput').value;
+    document.getElementById('titleResult').innerText = 'Length: ' + val.length;
+  }
 function checkTitleLen(){
   const v=document.getElementById('titlecheck-input').value||'';
   const l=v.length;
@@ -756,6 +772,11 @@ function checkTitleLen(){
 }
 
 // 2) Meta Description Analyzer
+  function analyzeMetaDesc() {
+    const val = document.getElementById('metaInput').value;
+    document.getElementById('metaResult').innerText = val.length <= 160 ? 'OK' : 'Too long';
+  }
+  
 function analyzeMetaDesc(){
   const v=document.getElementById('metadesc-input').value||'';
   const len=v.length;
@@ -766,14 +787,47 @@ function analyzeMetaDesc(){
 }
 
 // 3) URL Encode / Decode
+  function encodeURL() {
+    const val = document.getElementById('urlInput').value;
+    document.getElementById('urlResult').innerText = encodeURIComponent(val);
+  }
+
+  function decodeURL() {
+    const val = document.getElementById('urlInput').value;
+    document.getElementById('urlResult').innerText = decodeURIComponent(val);
+  }
 function encodeURL(){ const v=document.getElementById('url-input').value||''; document.getElementById('url-output').innerText = encodeURIComponent(v); }
 function decodeURL(){ const v=document.getElementById('url-input').value||''; try{ document.getElementById('url-output').innerText = decodeURIComponent(v); }catch(e){ document.getElementById('url-output').innerText='Invalid encoded string'; } }
 
 // 4) Base64
+  function toBase64() {
+    const val = document.getElementById('base64Input').value;
+    document.getElementById('base64Result').innerText = btoa(val);
+  }
+
+  function fromBase64() {
+    const val = document.getElementById('base64Input').value;
+    document.getElementById('base64Result').innerText = atob(val);
+  }
 function toBase64(){ const v=document.getElementById('base64-input').value||''; try{ document.getElementById('base64-output').innerText = btoa(unescape(encodeURIComponent(v))); }catch(e){ document.getElementById('base64-output').innerText='Encoding error'; } }
 function fromBase64(){ const v=document.getElementById('base64-input').value||''; try{ document.getElementById('base64-output').innerText = decodeURIComponent(escape(atob(v))); }catch(e){ document.getElementById('base64-output').innerText='Decoding error'; } }
 
 // 5) JSON Formatter & Validator
+  function formatJSON() {
+    try {
+      const val = document.getElementById('jsonInput').value;
+      const obj = JSON.parse(val);
+      document.getElementById('jsonResult').innerText = JSON.stringify(obj, null, 2);
+    } catch(e) { document.getElementById('jsonResult').innerText = 'Invalid JSON'; }
+  }
+
+  function minifyJSON() {
+    try {
+      const val = document.getElementById('jsonInput').value;
+      const obj = JSON.parse(val);
+      document.getElementById('jsonResult').innerText = JSON.stringify(obj);
+    } catch(e) { document.getElementById('jsonResult').innerText = 'Invalid JSON'; }
+  }
 function formatJSON(){
   const t=document.getElementById('json-input').value;
   try{
@@ -787,6 +841,15 @@ function minifyJSON(){
 }
 
 // 6) HTML Beautify / Minify (basic)
+  function beautifyHTML() {
+    const val = document.getElementById('htmlInput').value;
+    document.getElementById('htmlResult').innerText = val.replace(/></g, '>\n<');
+  }
+
+  function minifyHTML() {
+    const val = document.getElementById('htmlInput').value;
+    document.getElementById('htmlResult').innerText = val.replace(/\s+/g, ' ').trim();
+  }
 function beautifyHTML(){
   const s=document.getElementById('html-input').value||'';
   const formatted = s.replace(/>\s*</g,'>\n<').split('\n').map(l=>l.trim()).join('\n');
@@ -799,6 +862,12 @@ function minifyHTML(){
 }
 
 // 7) YouTube Tag Extractor (from pasted text)
+  function extractYTtags() {
+    const val = document.getElementById('ytInput').value;
+    const tags = val.split(' ').map(word => word.toLowerCase());
+    document.getElementById('ytResult').innerText = tags.join(', ');
+  }
+  
 function extractYTtags(){
   const txt = (document.getElementById('yttags-input').value||'').replace(/\n/g,' ');
   if(!txt){ document.getElementById('yttags-output').innerText='Paste description or tags'; return; }
@@ -816,6 +885,21 @@ function extractYTtags(){
 }
 
 // 8) Text Case Converter
+  function toUpperCaseText() {
+    const val = document.getElementById('textCaseInput').value;
+    document.getElementById('textCaseResult').innerText = val.toUpperCase();
+  }
+
+  function toLowerCaseText() {
+    const val = document.getElementById('textCaseInput').value;
+    document.getElementById('textCaseResult').innerText = val.toLowerCase();
+  }
+
+  function toTitleCaseText() {
+    const val = document.getElementById('textCaseInput').value;
+    const title = val.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase());
+    document.getElementById('textCaseResult').innerText = title;
+  }
 function toUpperCaseText(){ const v=document.getElementById('case-input').value||''; document.getElementById('case-output').innerText=v.toUpperCase(); }
 function toLowerCaseText(){ const v=document.getElementById('case-input').value||''; document.getElementById('case-output').innerText=v.toLowerCase(); }
 function toTitleCaseText(){ const v=document.getElementById('case-input').value||''; const t=v.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase()); document.getElementById('case-output').innerText=t; }
