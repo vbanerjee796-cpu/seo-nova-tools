@@ -758,10 +758,6 @@ function generateAIMeta(){
 /* ------------------- NEW 8 tools functions ------------------- */
 
 // 1) Meta Title Length Checker
-  function checkTitleLen() {
-    const val = document.getElementById('titleInput').value;
-    document.getElementById('titleResult').innerText = 'Length: ' + val.length;
-  }
 function checkTitleLen(){
   const v=document.getElementById('titlecheck-input').value||'';
   const l=v.length;
@@ -772,11 +768,6 @@ function checkTitleLen(){
 }
 
 // 2) Meta Description Analyzer
-  function analyzeMetaDesc() {
-    const val = document.getElementById('metaInput').value;
-    document.getElementById('metaResult').innerText = val.length <= 160 ? 'OK' : 'Too long';
-  }
-  
 function analyzeMetaDesc(){
   const v=document.getElementById('metadesc-input').value||'';
   const len=v.length;
@@ -787,47 +778,14 @@ function analyzeMetaDesc(){
 }
 
 // 3) URL Encode / Decode
-  function encodeURL() {
-    const val = document.getElementById('urlInput').value;
-    document.getElementById('urlResult').innerText = encodeURIComponent(val);
-  }
-
-  function decodeURL() {
-    const val = document.getElementById('urlInput').value;
-    document.getElementById('urlResult').innerText = decodeURIComponent(val);
-  }
 function encodeURL(){ const v=document.getElementById('url-input').value||''; document.getElementById('url-output').innerText = encodeURIComponent(v); }
 function decodeURL(){ const v=document.getElementById('url-input').value||''; try{ document.getElementById('url-output').innerText = decodeURIComponent(v); }catch(e){ document.getElementById('url-output').innerText='Invalid encoded string'; } }
 
 // 4) Base64
-  function toBase64() {
-    const val = document.getElementById('base64Input').value;
-    document.getElementById('base64Result').innerText = btoa(val);
-  }
-
-  function fromBase64() {
-    const val = document.getElementById('base64Input').value;
-    document.getElementById('base64Result').innerText = atob(val);
-  }
 function toBase64(){ const v=document.getElementById('base64-input').value||''; try{ document.getElementById('base64-output').innerText = btoa(unescape(encodeURIComponent(v))); }catch(e){ document.getElementById('base64-output').innerText='Encoding error'; } }
 function fromBase64(){ const v=document.getElementById('base64-input').value||''; try{ document.getElementById('base64-output').innerText = decodeURIComponent(escape(atob(v))); }catch(e){ document.getElementById('base64-output').innerText='Decoding error'; } }
 
 // 5) JSON Formatter & Validator
-  function formatJSON() {
-    try {
-      const val = document.getElementById('jsonInput').value;
-      const obj = JSON.parse(val);
-      document.getElementById('jsonResult').innerText = JSON.stringify(obj, null, 2);
-    } catch(e) { document.getElementById('jsonResult').innerText = 'Invalid JSON'; }
-  }
-
-  function minifyJSON() {
-    try {
-      const val = document.getElementById('jsonInput').value;
-      const obj = JSON.parse(val);
-      document.getElementById('jsonResult').innerText = JSON.stringify(obj);
-    } catch(e) { document.getElementById('jsonResult').innerText = 'Invalid JSON'; }
-  }
 function formatJSON(){
   const t=document.getElementById('json-input').value;
   try{
@@ -841,15 +799,6 @@ function minifyJSON(){
 }
 
 // 6) HTML Beautify / Minify (basic)
-  function beautifyHTML() {
-    const val = document.getElementById('htmlInput').value;
-    document.getElementById('htmlResult').innerText = val.replace(/></g, '>\n<');
-  }
-
-  function minifyHTML() {
-    const val = document.getElementById('htmlInput').value;
-    document.getElementById('htmlResult').innerText = val.replace(/\s+/g, ' ').trim();
-  }
 function beautifyHTML(){
   const s=document.getElementById('html-input').value||'';
   const formatted = s.replace(/>\s*</g,'>\n<').split('\n').map(l=>l.trim()).join('\n');
@@ -862,12 +811,6 @@ function minifyHTML(){
 }
 
 // 7) YouTube Tag Extractor (from pasted text)
-  function extractYTtags() {
-    const val = document.getElementById('ytInput').value;
-    const tags = val.split(' ').map(word => word.toLowerCase());
-    document.getElementById('ytResult').innerText = tags.join(', ');
-  }
-  
 function extractYTtags(){
   const txt = (document.getElementById('yttags-input').value||'').replace(/\n/g,' ');
   if(!txt){ document.getElementById('yttags-output').innerText='Paste description or tags'; return; }
@@ -885,21 +828,6 @@ function extractYTtags(){
 }
 
 // 8) Text Case Converter
-  function toUpperCaseText() {
-    const val = document.getElementById('textCaseInput').value;
-    document.getElementById('textCaseResult').innerText = val.toUpperCase();
-  }
-
-  function toLowerCaseText() {
-    const val = document.getElementById('textCaseInput').value;
-    document.getElementById('textCaseResult').innerText = val.toLowerCase();
-  }
-
-  function toTitleCaseText() {
-    const val = document.getElementById('textCaseInput').value;
-    const title = val.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase());
-    document.getElementById('textCaseResult').innerText = title;
-  }
 function toUpperCaseText(){ const v=document.getElementById('case-input').value||''; document.getElementById('case-output').innerText=v.toUpperCase(); }
 function toLowerCaseText(){ const v=document.getElementById('case-input').value||''; document.getElementById('case-output').innerText=v.toLowerCase(); }
 function toTitleCaseText(){ const v=document.getElementById('case-input').value||''; const t=v.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase()); document.getElementById('case-output').innerText=t; }
