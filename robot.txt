@@ -1,7 +1,5 @@
-# robots.txt for SEO Nova Tools
 User-agent: *
 Allow: /
 
-# Sitemap link for Google bots
 Sitemap: https://vbanerjee796-cpu.github.io/seo-nova-tools/sitemap.xml
 
