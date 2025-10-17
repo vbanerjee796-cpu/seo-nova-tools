@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://vbanerjee796-cpu.github.io/seo-nova-tools/</loc>
-    <lastmod>2025-10-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Sitemap for SEO Nova Tools website - quick links to all tools and pages.">
+  <title>SEO Nova Tools Sitemap</title>
+  <link rel="canonical" href="https://vbanerjee796-cpu.github.io/seo-nova-tools/sitemap.html">
+  <style>
+    body {font-family: Arial, sans-serif; margin: 40px; background: #f8f9fa;}
+    h1 {color: #333;}
+    ul {line-height: 1.8;}
+    a {color: #0073e6; text-decoration: none;}
+    a:hover {text-decoration: underline;}
+  </style>
+</head>
+<body>
+  <h1>SEO Nova Tools Sitemap</h1>
+  <p>Quick access to all important tools and pages.</p>
+  <ul>
+    <li><a href="https://vbanerjee796-cpu.github.io/seo-nova-tools/">Home</a></li>
+    <li><a href="https://vbanerjee796-cpu.github.io/seo-nova-tools/#meta-tool">Meta Description Checker</a></li>
+    <li><a href="https://vbanerjee796-cpu.github.io/seo-nova-tools/#url-tool">URL Encoder / Decoder</a></li>
+    <li><a href="https://vbanerjee796-cpu.github.io/seo-nova-tools/#base64-tool">Base64 Converter</a></li>
+    <li><a href="https://vbanerjee796-cpu.github.io/seo-nova-tools/#html-tool">HTML Minifier / Beautifier</a></li>
+    <li><a href="https://vbanerjee796-cpu.github.io/seo-nova-tools/#youtube-tool">YouTube Tag Extractor</a></li>
+  </ul>
+</body>
+</html>
 
-  <!-- Add your tools pages below (optional if all tools on one page) -->
-  <url>
-    <loc>https://vbanerjee796-cpu.github.io/seo-nova-tools/#meta-tool</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://vbanerjee796-cpu.github.io/seo-nova-tools/#url-tool</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-</urlset>
 
